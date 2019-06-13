@@ -3,12 +3,12 @@
     
 alt：找不到图片的提示信息
 
-colsapn
-rowspan
+colsapn="" 合并列
+rowspan="" 合并行
 
-header
-footer
-nav
-article
-section
+header 头部
+footer 页尾
+nav 导航栏链接
+article 区块 一般用与同一类型的区块
+section 关联性不强的区块
 
