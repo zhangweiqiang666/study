@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>H5表单</title>
+</head>
+
+<body>
+    <form action="" id="form"
+        <progress value="0" id="progress" max="100"></progress>
+        <output id="show">0</output>
+        <br>
+        <!-- 绿色 -->
+        <meter min="0" max="100" low="40" high="60" value="40"></meter>
+        <!-- 如果optimum在low和high之间 相当于没有 -->
+        <meter min="0" max="100" low="40" high="60" optimum="50" value="50"></meter>
+        <!-- 如果optimum小于low value大于high变为红色 反之亦然 -->
+        <meter min="0" max="100" low="40" high="60" optimum="20" value="80"></meter>
+        <meter min="0" max="100" low="40" high="60" optimum="80" value="20"></meter>
+        <hr>
+        <!-- autocompelete="off"关闭自动补全 -->
+        <input type="text" name="input1">
+        <input type="text" list="data" name="input2">
+        <datalist id="data">
+            <option value="hello"></option>
+            <option value="zwq"></option>
+            <option value="world"></option>
+        </datalist>
+        <hr>
+        年月日<input type="date"> <br>
+        时间<input type="time" name="" id=""> <br>
+        年月日时间 <input type="datetime-local" name="" id=""> <br>
+        月份month <input type="month" name="" id=""> <br>
+        周week <input type="week" name="" id=""> <br>
+
+        <hr>
+        <!-- required 必填项 填了才能提交 -->
+        数字：<input type="number" name="" id=""><br>
+        顏色：<input type="color" name="" id=""> <br>
+        邮箱：<input type="email" name="" id="" required> <br>
+        url：<input type="url" name="" id=""> <br>
+        <!-- pattern 正则表达式 -->
+        telphone：<input type="tel" pattern="[0-9]{11}" <br>
+        
+        <hr>
+        range: <input type="range" min="0" max="100" step="10" value="20">
+        <hr>
+        <button>提交</button>
+    </form>
+    <hr>
+    form外部的input：<input type="text" name="outinput" form="form" >
+</body>
+<script>
+    window.onload = function () {
+        var ele = document.getElementById('progress')
+        var show = document.getElementById('show')
+        console.log(ele.value)
+        //定时器
+        setInterval(function () {
+            if (ele.value >= 100) {
+                return
+            } else {
+                ele.value += 5
+                show.innerHTML = ele.value + '%'
+            }
+        }, 300)
+
+    }
+</script>
+
+</html>

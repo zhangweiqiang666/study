@@ -1,0 +1,41 @@
+复习：
+a  
+    属性
+        href="" 属性 取值  url/锚点（#id） mailto：
+        target  _blank(新标签打开)  _self
+
+img
+    属性
+        src="" 图片路径
+        alt""  提示信息
+
+table    
+       属性：
+        border=""
+        cellpadding="" 单元格内边距
+        cellspacing="" 单元格与单元格的空间
+    caption 表的标题 
+    thead
+    tbody
+        tr 
+            td/th 
+    tfoot  
+
+H5新标签：
+    header
+    footer
+    nav      
+    article
+    section  
+    address  地址
+    aside    侧边栏
+
+form表单
+    input 
+        type:
+            text
+            password
+            submit
+
+
+formnovalidate 不验证就能提交
