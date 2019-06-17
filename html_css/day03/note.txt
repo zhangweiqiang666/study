@@ -39,3 +39,5 @@ form表单
 
 
 formnovalidate 不验证就能提交
+required 必填项 填了才能提交
+autocompelete="off"关闭自动补全 

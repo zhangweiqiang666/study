@@ -1,0 +1,23 @@
+1.块级元素和行内元素的区别
+	块级元素：独占一行，可以设置宽高
+	行内元素：一行显示，不可设置宽高
+	img：行内元素，可以设置宽高
+
+2.布尔属性的值
+reversed 反转
+checked 选中
+disabled 禁用
+readonly 只读
+multiple 是否可以多选
+selected 多选，默认选中
+required  必填
+formnovalidate 不验证表单
+
+3.H5新增的块级元素
+header 头部
+footer 脚部
+article 主体部分
+section 页面中某一部分
+aside 次部分
+nav 导航
+address 地址
