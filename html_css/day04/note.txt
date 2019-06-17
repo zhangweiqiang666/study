@@ -20,4 +20,13 @@ article 主体部分
 section 页面中某一部分
 aside 次部分
 nav 导航
+
 address 地址
+
+---------------------------------------------------------------
+css级联（css层叠） 规定了在哪个HTML使用哪个样式
+ cascading style sheets
+ 
+css选择器 选中匹配的元素 然后进行样式的设置
+
+@import  在css中导入外部样式 放在style第一行导入
