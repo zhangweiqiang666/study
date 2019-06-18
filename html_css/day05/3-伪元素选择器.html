@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>伪元素选择器</title>
+    <style>
+    /* section p::before{ */
+    section p::after{
+        content: '*';
+        color:red
+    }
+    form span::before{
+        content: '*';
+        color:red
+    }
+
+    div::first-letter{
+        font-size: 30px;
+        color:cyan;
+    }
+    div::first-line{
+        color:darkorchid;
+    }
+    /* 用户选中的文本设置 */
+    div::selection{
+      color: #fff;
+      background-color: #42a896;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <div>
+        防守打法会计师考虑放声大哭雷锋精神打开浪费时间代理<br>
+        我的房间撒地方就开始来得及开始的减肥扣水电费决胜巅峰可斯柯达
+    </div>
+    <article>
+        <section>
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+        </section>
+    </article>
+
+    <form action="">
+           <span>用户名：</span> <input type="text" name="" id="" required>
+            <br>
+            <span>密码：</span> <input type="password" name="" id="" required>
+            <br>
+            性别： <input type="radio" name="gander" id="" checked>男
+            <input type="radio" name="gander">女
+            <br>
+            年龄：<input type="number" min="10" max="50" name="" id="">
+            <br>
+            <input type="submit" name="" id="" value="提交">
+        </form>
+
+</body>
+
+</html>

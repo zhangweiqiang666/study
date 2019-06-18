@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>伪类选择器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            border: 1px solid red;
+            margin: 10px;
+        }
+/* 
+        div>*:first-child {
+            color: yellow;
+        }
+
+        div>*:last-child {
+            background-color: brown;
+        } */
+
+        /* 每个div的第二个孩子 */
+        /* div>*:nth-child(2) {
+            background-color: burlywood;
+        } */
+
+        /* 每种类型中的第一个 */
+        /* div>*:first-of-type{
+            background-color: burlywood;
+        } */
+
+        /* 独生子元素 */
+        div>*:only-child{
+            background-color: burlywood;
+        }
+        
+        table{
+            border: 1px solid firebrick;
+            /* 边框合并 和cellspacing等同 */
+            border-collapse: collapse;
+        }
+        thead>tr{
+            background-color: rgb(119, 116, 116);
+        }
+        tbody>tr:nth-child(even){
+            background-color: rgb(216, 213, 213)
+        }
+        th,td {
+            width: 160px;
+            height: 50px;
+            border: 1px solid firebrick
+        }
+        tbody>tr:hover{
+        background-color:beige;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>p1</p>
+        <p>p2</p>
+        <span>span1</span>
+        <span>span2</span>
+    </div>
+    <div>
+        <p>p1</p>
+        <p>p2</p>
+        <span>span1</span>
+        <span>span2</span>
+        <span>span3</span>
+        <span>span4</span>
+    </div>
+    <div>
+        <span>span1</span>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>继承</title>
+    <style>
+        div {
+            font-size: 30px;
+            border: 1px solid red;
+        }
+
+        span {
+            /* 使用浏览器默认样式 initial初始化
+            将可继承的设置成不可继承的 */
+            font-size: initial;
+            /* 将不可继承的设置成可继承的 */
+            border: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        div标签
+        <p>p标签</p>
+        <span>span标签</span>
+    </div>
+</body>
+
+</html>

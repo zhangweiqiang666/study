@@ -1,0 +1,77 @@
+普遍选择器：  *
+id选择器 ：#id值
+类选择器： .类名
+标签选择器： div
+组合选择器： div,span
+嵌套选择器： div.one
+            div .one
+后代选择器：
+空格 后代
+>    子代
+
+兄弟选择器：
++ 下一个兄弟元素
+~ 之后所有的兄弟元素
+
+属性选择器
+
+[attr]        选中有某个属性的元素
+[attr=val]    选中属性值等于val的
+[attr^=val]   选中属性值以val开头的元素
+[attr$=val]   选中属性值中以val结尾的元素
+[attr*=val]   选中属性值中包含val的元素
+[attr~=val]   选中属性的值有val的元素
+
+—————————————————————————————我是分割线—————————————————————————————————————————
+
+权值比较：
+style属性内  1000
+id选择器     100
+class选择器，10
+伪类，       10
+属性选择器   10
+标签选择器   1
+空格 + ~     0
+使用 !important修饰的最优先
+
+:frist-child 选择父容器的第一个孩子      em：div>*:frist-child
+:last-child  选择父容器的最后一个孩子
+:div>*:nth-child(n) 选择父容器的第n个孩子
+:div>*:nth-last-child(n) 选择父容器的倒数第n个孩子
+:frist-of-type 选择父容器每种类型的第一个孩子
+:last-of-type  选择父容器的每种类型最后一个孩子
+:nth-of-type(n) 选择父容器每种类型的第n个孩子
+:nth-last--of-type(n) 选择父容器每种类型的倒数第n个孩子
+:only-child 选择独生子元素
+
+:hover  设置鼠标悬停样式
+:active 鼠标点击样式
+:focus  获得焦点
+:enabled 选择可用的元素
+:disabled 选择禁用的元素
+:checked 选择用户选择的元素
+:default 选择默认的元素
+:invalid 选择未通过验证的元素
+:valid  选择通过验证的元素
+:required 选择必填项
+:optional 选择非必填项
+
+
+:out-of-range 选择不在范围内的元素
+
+————————————————————伪元素——————————————————
+::after  在元素后设置样式
+::before 在元素前设置样式 
+::first-letter 第一个字符设置样式
+::first-line  第一行设置样式
+::selection  选中的文本样式
+
+————————————————————继承——————————————————-
+initial  将可继承的设置成不可继承的
+inherit  将不可继承的设置成可继承的
+
+————————————————————行内与块状———————————————————
+ display:inline  转化为行内元素
+ display:inline-block 转化为可设置宽高的行内元素
+ display:block  转化为块状元素
+
