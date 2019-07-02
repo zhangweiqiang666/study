@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1.a标签 -->
+    <a href="https://www.baidu.com">百度</a>
+    <a href="e:\Github\briup\html_css\day01\test.html">aa </a>
+    <a href="../day01/test.html"></a>
+    <!-- 锚点跳转 -->
+    <a href="#top">返回顶部</a>
+    <!-- 邮箱跳转 -->
+    <a href="mailto:972618478@qq.com">发送邮件</a>
+    <div class=""></div>
+
+    <!-- 2.img标签  -->
+    <!-- 行内元素设置宽高无效 
+          块级元素可设置宽高
+          img是一个特殊的元素 可设置宽高 -->
+    <img src="images/AEB69F964C291EA3DAAE170AC1E846B1.png" width="800px" alt="找不到图片">
+
+    <!-- 3.table标签 -->
+
+    <table border="1px" cellspacing="0" cellpadding="0" align="center" bgcolor="red" width="300px">
+        <tbody>
+            <tr>
+                <!-- tr通常用来设置表头 自带加粗居中效果 -->
+                <th>1 </th>
+                <th>2 </th>
+                <th>3 </th>
+                <th>4 </th>
+                <th>5 </th>
+            </tr>
+            <tr align="center">
+                <td>6 </td>
+                <td>7 </td>
+                <td>8 </td>
+                <td>9 </td>
+                <td>10</td>
+            </tr>
+        </tbody>
+    </table>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <!-- 表的基本结构 -->
+    <table width="300px" align="center"  border="1px" cellspacing="0" cellpadding="0">
+        <!-- 标题 -->
+        <caption align="">表1-1</caption>
+        <!-- 表头 -->
+        <thead>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+        </thead>
+        <!-- 表身 -->
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+        <!-- 表尾 -->
+        <tfoot>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!-- 表的合并 colspan 合并列  rowspan合并行 -->
+    <table width="200px"
+    border="1px"
+    cellspacing="0"
+    cellpadding="0">
+    <!-- 处理 -->
+    <colgroup>
+        <col>
+    <col  span="3" style="background: red"/>
+    </colgroup>
+    <tr>
+        <td colspan="2">11</td>
+        <td>12</td>
+        <td rowspan="2">13</td>
+        <td>14</td>
+    </tr>
+    <tr>
+        <td>21</td>
+        <td>22</td>
+        <td>23</td>
+        <td>24</td>
+    </tr>
+</table>
+
+</body>
+
+</html>

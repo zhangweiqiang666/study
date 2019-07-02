@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹性布局</title>
+    <style>
+        .container{
+            display: flex;
+            /* 主轴 */
+            /* flex-direction: column; */
+            /* 主轴的对齐方式 */
+            /* justify-content: flex-start; */
+            /* justify-content: flex-end; */
+            /* justify-content: center; */
+            /* 项目四周有空间 */
+            /* justify-content: space-around; */
+            /* 交叉轴的对齐方式 */
+            /* align-items: center; */
+            /* 如果项目没有设置宽高 默认对齐方式
+            stretch拉伸 等于父容器宽高 */
+            /* align-items: stretch; */
+            /* 项目内部的文本对齐 */
+
+            /* 多主轴的对齐方式 */
+            /* flex-wrap: wrap; */
+            /* 多轴对齐方式 */
+            /* align-content: flex-start; */
+            /* 速写属性 */
+            /* flex-flow: row wrap; */
+            /* align-items: baseline; */
+            height: 630px;
+            border: 1px solid rebeccapurple;
+        }
+        .container > div{
+            flex: 1;
+            width: 200px;
+            /* height: 200px; */
+            border: 1px solid blue;
+        }
+        div.one{
+            /* 固定宽度 */
+            /* flex-basis: 200px; */
+            flex:200px 1;
+            /* padding: 10px; */
+            /* height: 100px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="one">one</div>
+        <div class="two">two</div>
+        <div class="three">three</div>
+    </div>
+</body>
+</html>

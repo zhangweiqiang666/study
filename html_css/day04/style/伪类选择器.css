@@ -1,0 +1,36 @@
+div:hover {
+    background: pink
+}
+
+.list-div {
+    display: none
+}
+
+.btn-div:hover>.list-div {
+    display: block
+}
+
+a {
+    text-decoration: none;
+}
+
+/* a标签未访问的样式 */
+a:link {
+    color: orange;
+}
+
+/* a标签访问过的样式 */
+a:visited {
+    color: pink;
+}
+
+/* 悬停 */
+a:hover {
+    color: cyan;
+    cursor: wait;
+}
+
+/* 点击 */
+a:active {
+    color: yellow;
+}

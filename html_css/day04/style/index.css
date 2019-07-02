@@ -1,0 +1,51 @@
+body {
+    /* 设置内部文字样式 */
+    color: grey;
+}
+
+/* 普遍选择器  所有标签*/
+* {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+/* 选中outer的所有后代 */
+.outer * {
+    border: 1px solid red;
+    margin: 10px;
+}
+
+/* 选中outer直接孩子元素 */
+.outer>* {
+    border: 1px dashed blue;
+}
+
+/* 选中outer直接孩子的p标签  >  */
+.outer>p {
+
+    border: 2px solid rebeccapurple;
+}
+
+/* 选中p2的下一个兄弟节点 唯一且确定*/
+/* dotted： 点状线   +  */
+.p2+* {
+    border: 1px dotted navy;
+}
+
+/* 选中id为p2之后的所有兄弟元素   ~  */
+#p2~* {
+    border: 2px solid yellow;
+}
+
+/* 嵌套选择器 */
+
+/* 选中div 并且它的类名是inner */
+div.inner {
+    border: solid 1px red;
+}
+
+/* 选中div后代的 类名为inner */
+div .inner {
+    font-family: fantasy;
+}

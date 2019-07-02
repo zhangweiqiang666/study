@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #555555 
+}
+div {
+    text-align: center
+}
+ul{
+    margin-top: 10px;
+    float: right;
+
+}
+li{
+   list-style: none;
+   float: left;
+   margin-right:25px; 
+}
+.nav{
+    height: 40px;
+    border-bottom:1px solid rgb(226, 226, 226); 
+}
+.nav a{
+    text-decoration: none;
+}
+.logo{
+    margin:150px 0 30px 0; 
+}
+.search{
+    margin-bottom: 160px;
+}
+.search input[type=text]{
+    width: 535px;
+    height: 40px;
+}
+.search span{
+    position: relative;
+    left: -50px;
+    top: 15px;
+}
+.search input[type=submit]{
+    width: 102px;
+    height: 44px;
+    color: white;
+
+    background-color: #3289FF;
+    border: 0px;
+    position: relative;
+    left: -49px;
+    top: 1px;
+}
+.foot{
+    font-size: 14px;
+    color: #C5C5C5;
+}

@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+p.empty {
+    width: 100%;
+    height: 70px;
+}
+
+p.tar {
+    width: 513px;
+    height: 56px;
+    position: relative;
+}
+
+a.btn {
+    padding: 0 10px;
+    background-color: #3dbd82;
+    color: white;
+    text-decoration: none;
+    height: 26px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* 侧边栏 */
+.side-nav {
+    position: fixed;
+    width: 130px;
+    top: 100px;
+    left: 50%;
+    margin-left: -540px;
+}
+
+.side-nav li {
+    cursor: pointer;
+    border-bottom: 1px solid #adadad;
+    width: 82px;
+    height: 26px;
+    padding: 7px 24px 7px 12px;
+}
+
+.side-nav li a {
+    line-height: 1.666;
+    color: #666;
+}
+
+.side-nav li i {
+    position: relative;
+    top:-20px;
+    left: 80px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(../images/pro/asset\ 11.png) -175px -24px;
+}
+.side-nav li i.onclick{
+    background: url(../images/pro/asset\ 11.png) -200px -24px;  
+}
+.content {
+    line-height: 1.6666;
+    width: 100%;
+}
+
+.main>div:first-child {
+    width: 100%;
+    height: 500px;
+    padding: 70px 0 40px;
+    background-color: #f1f3f4;
+    border: none;
+}
+
+.main>div {
+    height: 338px;
+    width: 1080px;
+    margin: 0 auto;
+
+}
+
+.main>div>div:first-child {
+    height: 100%;
+    width: 916px;
+    margin-left: 164px;
+    border-bottom: 1px dashed rgb(173, 173, 173);
+}
+
+.content .main div .advantage {
+    width: 1080px;
+    margin: 0 auto;
+    border: none !important;
+}
+
+.content .main div .advantage ul {
+    width: 916px;
+    margin-left: 164px;
+    border: none !important;
+}
+
+.advantage li {
+    float: left;
+    width: 427px;
+    height: 98px;
+    padding: 30px 0;
+    border-bottom: 1px dashed #adadad;
+}
+
+.advantage li>div {
+    float: left;
+}
+
+.bg-1 {
+
+    background: url(../images/pro/asset\ 11.png) -23px -75px;
+    height: 75px;
+    width: 75px;
+    margin: 7px 15px 0 0;
+}
+
+.bg-2 {
+    background: url(../images/pro/asset\ 11.png) -128px -75px;
+}
+
+.bg-3 {
+    background: url(../images/pro/asset\ 11.png) -227px -75px;
+}
+
+.bg-4 {
+    background: url(../images/pro/asset\ 11.png) -327px -75px;
+}
+
+.bg-5 {
+    background: url(../images/pro/asset\ 11.png) -428px -75px;
+}
+
+.bg-6 {
+    background: url(../images/pro/asset\ 11.png) -528px -75px;
+}
+
+.adv-item {
+    width: 330px;
+    height: 75px;
+}
+
+.item-tit {
+    font-size: 20px;
+    color: #0154A0;
+}
+
+i.icon {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    background: url(../images/pro/asset\ 11.png) -225px -23px;
+}
+
+.float>div {
+    width: 335px;
+    margin-top: 60px;
+    float: left;
+}
+
+.float .fr {
+    float: right;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 32px;
+    color: #0154A0;
+}
+
+/* 产品功能 */
+.item {
+    width: 513px;
+    margin: 30px 0 0 68px;
+}
+
+.item-r {
+    position: relative;
+    left: 180px;
+    width: 513px;
+    margin: 30px 0 0 0;
+}

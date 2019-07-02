@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>变形</title>
+    <style>
+        div {
+            margin: 100px;
+            width: 200px;
+            height: 100px;
+            background-color: #ffff00;
+            animation: myani;
+            animation-duration: 1s;
+            /* animation-iteration-count: infinite;  */
+            animation-timing-function: linear;
+            /* transform-origin: right bottom; */
+        }
+
+        @keyframes myani {
+            from {
+                /* transform: rotateZ(0deg) */
+                /* transform: skew(0deg) */
+                /* 缩放 */
+                /* transform: scale() */
+                /* 平移 */
+                transform: translate(0,0)
+            }
+
+            to {
+                /* transform: rotateZ(30deg) */
+                /* transform: skew(80deg) */
+                /* transform: scale(1.5) */
+                transform: translate(100px,100px)
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        hello
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+div{
+    width: 100px;
+    height: 100px;
+    border: 1px solid navy;
+}
+/* 属性选择器 */
+
+/* 代表有class属性的被选中 */
+
+
+/* [class]{
+    background-color: red;
+} */
+
+
+/* 属性值等于one的 */
+
+/* [class=one]{
+background: pink
+} */
+
+
+/* 属性值中包含 o  的*/
+
+/* [class *=o]{
+    background: pink
+} */
+
+
+/* 属性值以t开头的 */
+
+/* [class ^=t]{
+    background: pink
+} */
+
+
+/* 属性值以e结束的 */
+
+[class $=e]{
+    background: pink
+}
+
+
+/* 属性值中包含某个值的  对应的是值 不是字符串*/
+[class ~=one]{
+    color: brown
+}

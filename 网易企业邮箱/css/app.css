@@ -1,0 +1,44 @@
+body {
+    background-color: #f1f3f4;
+}
+
+.side-nav li {
+    position: relative;
+    width: 100px;
+}
+
+.side-nav li i {
+    position: absolute;
+    top: 13px;
+    left: 116px;
+}
+
+.info {
+    width: 1080px;
+    margin: 0 auto;
+}
+.info .warp{
+    margin-left: 164px;
+    width: 916px;
+    height: 260px;
+    padding: 100px 0;
+    border-bottom: 1px solid rgb(177, 177, 177);
+}
+a.btn-1{
+    right: 130px; 
+
+}
+a.btn-2{
+    right: 150px; 
+
+}
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+.warp{
+    padding-top:50px!important; 
+}

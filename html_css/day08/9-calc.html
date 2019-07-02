@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>属性值的计算Calc</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* div{
+            width: calc(30% + 170px);
+            height: 200px;
+            background-color:pink ;
+        } */
+        .container{
+            display: flex;         
+             /* height: 800px; */
+             /* 浮动，定位 块级元素的宽度不再是100% 而是由内容撑起来 */
+             width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+
+        .left {
+            margin-right: 2px;
+            width: 200px;
+            background-color: aqua;
+        }
+        .right{
+            background-color: rgb(149, 95, 51);
+            width: calc(100% - 200px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+        </div>
+        <div class="right"></div>
+    </div>
+
+</body>
+
+</html>

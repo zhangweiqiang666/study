@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            text-align: center;
+            /* 文字在行高内垂直居中 */
+            line-height: 100px
+        }
+
+        ul {
+            list-style: none;
+            /* background-color: rgb(246, 138, 138); */
+        }
+
+        li {
+            /* display: inline-block; */
+            float: left;
+            width: 16%;
+            background: rgb(246, 138, 138);
+            color: #fff;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        li ul{
+            background-color: #fff;
+        }
+        li ul li{
+            display: none;
+            width: 100%;
+        }
+        li:hover{
+            background: rgb(241, 195, 195);
+        }
+        li:hover ul li{
+            display: block
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        hello
+    </div>
+    <nav>
+        <ul>
+            <li>首页
+                <ul>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                </ul>
+            </li>
+            <li>首页 
+                <ul>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                </ul>
+            </li>
+            <li>首页 
+                <ul>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                </ul>
+            </li>
+            <li>首页 
+                <ul>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                </ul>
+            </li>
+            <li>首页 
+                <ul>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                </ul>
+            </li>
+            <li>首页 
+                <ul>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                    <li>111</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>
