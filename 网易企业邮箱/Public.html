@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网易企业邮箱 - 企业邮箱信息化专业解决方案</title>
+    <link rel="stylesheet" href="./css/public.css">
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="header">
+        <div class="header-main">
+            <a href="#"><img src="./images/qiye_logo.png" alt=""></a>
+            <div class="nav">
+                <ul id="list">
+                    <li id="index" class="onclick">首页
+                    <li class="page">|</li>
+                    </li>
+                    <li id="product">产品
+                    <li class="page">|</li>
+                    </li>
+                    <li id="price">定价
+                    <li class="page">|</li>
+                    </li>
+                    <li id="app">企业应用
+                    <li class="page">|</li>
+                    </li>
+                    <li id="dealer">经销商
+                    <li class="page">|</li>
+                    </li>
+                    <li id="userstory">用户故事
+                    <li class="page">|</li>
+                    </li>
+                    <li class="login"><a href="./html/login.html" target="_blank">登录</a></li>
+                    <li class="button"><button>免费试用7天</button></li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <div class="tip tip-phone">
+                <div class="tip-text hidd">电话<br>客服</div>
+                <div class="tip-hidd hidd">95-163-188</div>
+        </div>
+        <div class="tip">
+            <div class="tip-text tip-buy">购买<br />咨询</div>
+        </div>
+        <div class="tip tip-help">
+                <div class="tip-text hidd">帮助</div>
+        </div>
+        <div class="tip">
+            <div class="tip-text">免费<br />试用</div>
+        </div>
+        <div class="tip">
+            <div class="tip-text">关注<br />我们</div>
+            <div class="tip-hidd hidd tip-code">
+                <img src="./images/code.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 内容区 -->
+    <div class="main">
+        <iframe id="main" src="./html/index.html" marginheight="0" frameborder="0" width="100%" height="2677px"
+            scrolling="no"></iframe>
+    </div>
+    <!-- 尾部 -->
+    <div class="footer">
+        <div class="footer-main">
+            <p><a href="">关于网易</a> - <a href="">网站地图</a> - <a href="">客户服务</a> - <a href="">相关法律</a> - <a
+                    href="">客服热线：95163188</a></p>
+            <p><a href="">ICP证粤B2-20090191</a> - <a href="">信用中国</a> - <a href="">增值电信业务经营许可证B2-20090058</a></p>
+            <p class="copy">网易公司版权所有 &copy; 1997-2019
+                <a href=""><img src="./images/knet.png" alt=""></a>
+                <a href=""><img src="./images/coremail-logo.png" alt=""></a> </p>
+        </div>
+    </div>
+</body>
+<script>
+    var main = document.getElementById('main');
+    var index = document.getElementById('index');
+    var product = document.getElementById('product');
+    var price = document.getElementById('price');
+    var app = document.getElementById('app');
+    var dealer = document.getElementById('dealer');
+    var userstory = document.getElementById('userstory');
+    var list = document.getElementById('list').getElementsByTagName('li');
+    function changeList(curIndex) {
+        for (var j = 0; j <= 10; j++) {
+            list[j].className = "";
+            j++;
+        }
+        // 改变当前显示索引
+        list[curIndex].className = "onclick";
+        console.log(curIndex)
+    }
+
+    index.onclick = function () {
+        main.src = "./html/index.html"
+        main.height="2677px"
+        changeList(0)
+    }
+    product.onclick = function () {
+        changeList(2)
+        main.src = "./html/product.html"
+        main.height="3046px"
+    }
+    price.onclick = function () {
+        main.src = "./html/price.html";
+        main.height="1426px"
+        changeList(4)
+    }
+    app.onclick = function () {
+        main.src = "./html/app.html"
+        main.height="4520px"
+        changeList(6)
+    }
+    dealer.onclick = function () {
+        main.src = "./html/dealer.html"
+        main.height="2297px"
+        changeList(8)
+    }
+    userstory.onclick = function () {
+        main.src = "./html/userstory.html"
+        main.height="2120px"
+        changeList(10)
+    }   
+</script>
+
+</html>

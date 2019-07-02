@@ -1,0 +1,60 @@
+overflow 溢出处理
+auto  自动产生滚动条
+scroll 产生滚动条
+hidden 超出内容隐藏
+
+盒子模型
+    W3C盒子 设置width和height是内容区的
+    IE盒子  盒子的宽高是设置的宽高
+
+浮动
+    脱离文档流 飘在上层
+    float:left/right
+    清除浮动：
+        兄弟元素清除浮动的影响：clear:both;
+        父子之间清除浮动的影响：overflow:hidden;
+
+border属性
+    border-radius:50%;
+
+background属性:
+    background-color:
+
+定位：position
+    1.静态定位
+        position:static
+        默认文档流定位
+    2.相对定位
+        position:relative
+        相对于原来的位置定位
+        原先位置保留 不脱离文档流
+    3.绝对定位
+        position:absolute;
+        如果有定位的祖先元素，相对于离他最近的祖先元素定位
+        如果没有，相对于浏览器左上角定位
+        原先位置不保留 脱离文档流
+    4.固定定位
+        position:fixed;
+        固定在浏览器的某个位置上
+        原先位置不保留 脱离文档流
+
+z-index 层叠顺序
+     值越大越靠上
+     绝对定位元素重叠是设置显示
+
+浮动 定位块级元素 不再独占一行，需要自己设置
+
+动画 animation
+    一帧一帧组成动画序列
+    线申明动画序列 再使用
+
+
+ <768            超小屏
+ 768 992         小屏
+ 992 1200        中屏
+ >1200
+
+ -webkit- 谷歌浏览器和safari浏览器
+ -moz- 火狐浏览器
+ -ms- IE浏览器
+ -o- 欧朋浏览器

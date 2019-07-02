@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>省略号</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            border: 1px solid red;
+            /* 内部文本不换行 */
+            white-space: nowrap;
+            overflow: hidden;
+            /* ellipsis省略号 */
+            text-overflow: ellipsis;
+            /*  默认裁剪 */
+            /* text-overflow: clip; */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        overflow 溢出处理
+        auto 自动产生滚动条
+        scroll 产生滚动条
+        hidden 超出内容隐藏
+
+        盒子模型
+        W3C盒子 设置width和height是内容区的
+        IE盒子 盒子的宽高是设置的宽高
+
+        浮动
+        脱离文档流 飘在上层
+        float:left/right
+        清除浮动：
+        兄弟元素清除浮动的影响：clear:both;
+        父子之间清除浮动的影响：overflow:hidden;
+
+        border属性
+        border-radius:50%;
+
+        background属性:
+        background-color:
+    </div>
+</body>
+
+</html>

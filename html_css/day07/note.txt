@@ -1,0 +1,23 @@
+font-style
+italic 斜体
+oblique 模拟斜体
+normal  正常
+
+font-weight
+lighter 细的
+bold 加粗
+
+text-transform
+
+none
+uppercase 大写
+lowercase  小写
+capitalize  首字母大写
+full-width  等宽
+
+属性
+visibility:hidden visible
+opcity:0/0.5
+overflow :溢出处理
+
+——————————————————————————————————————————————————————————————

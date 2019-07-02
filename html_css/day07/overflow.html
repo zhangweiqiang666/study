@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Overflow溢出处理</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        .over-div {
+            /* overflow: hidden; */
+            /* 如果溢出 产生滚动条 不溢出不产生滚动条 */
+            overflow: auto;
+            /* 无论有无溢出 都产生滚动条 */
+            /* overflow: scroll; */
+        }
+
+        .one {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(200, 18, 18);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="over-div">
+        1111111111
+        <br>
+        <br>
+        <br>
+        <br>
+        111111111111111
+        <br>
+        1111111111
+        <br>
+        <br>
+        <br>
+        <br>
+        111111111111111 1111111111
+        <br>
+        <br>
+        <br>
+        <br>
+        111111111111111 1111111111
+        <br>
+        <br>
+        <br>
+        <br>
+        111111111111111
+    </div>
+    <div class="one"></div>
+</body>
+
+</html>

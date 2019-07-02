@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            /*脱离文档流 原先位置不保留 */
+
+        }
+
+        .one {
+            background-color: #dded1d;
+            height: 400px;
+            float: left;
+
+        }
+
+        .two {
+            background-color: #ff8080;
+            float: left;
+        }
+
+        .three {
+            background-color: #80ff80;
+            /* 清除浮动队three的影响 */
+            /* clear: both; */
+            float: left;
+        }
+
+        .four {
+            background-color: #4435ff;
+            float: left;
+        }
+
+        .five {
+            background-color: #ff0080;
+            /* float: left; */
+            clear: both;
+        }
+
+        .six {
+            background-color: #ff8000;
+            /* float: left; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one">one</div>
+    <div class="two">two</div>
+    <div class="three">three</div>
+    <div class="four">four</div>
+    <div class="five">five</div>
+    <div class="six">six</div>
+</body>
+
+</html>

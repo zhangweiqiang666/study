@@ -1,0 +1,269 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content {
+    width: 100%;
+    height: 708px;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.wrap {
+    margin: 0 auto;
+    width: 960px;
+}
+
+.header img {
+    position: relative;
+    left: 20px;
+    top: 10px;
+}
+
+nav a,
+nav {
+    margin: 0 15px;
+    font-size: 12px;
+    color: #959595;
+}
+
+a:hover {
+    color: rgb(2, 2, 31);
+}
+
+.main {
+    width: 100%;
+    background: url(../images/login/asset\ 6.jpeg) center;
+    height: 580px
+}
+
+.w-main {
+    position: relative;
+    height: 580px;
+}
+
+.login {
+    background: url(../images/login/asset\ 7.png);
+    position: absolute;
+    top: 12%;
+    right: 6%;
+    height: 414px;
+    width: 295px;
+    padding: 13px 14px 15px;
+
+}
+#login-mian,#code-main{
+    height: 414px;
+    width: 295px;
+}
+.login-bg1{
+    background: url(../images/login/asset\ 7.png);
+}
+.login-bg2{
+    background: url(../images/login/asset\ 7.png) -323px 0;
+}
+
+.login-hd {
+    height: 46px;
+}
+
+.item {
+    color: #626262;
+    line-height: 46px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    width: 147px;
+    height: 46px;
+}
+
+/* 登录主体部分 */
+.login-bd {
+    width: 295px;
+    height: 303px;
+}
+
+.login-bd form {
+    width: 245px;
+    height: 239px;
+    padding: 25px 25px 0;
+}
+
+.ipt {
+    line-height: 40px;
+    width: 243px;
+    height: 40px;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid rgb(199, 199, 199);
+}
+
+.ipt span {
+    background: url(../images/login/asset\ 8.png) -19px -28px;
+    margin-left: 5px;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+}
+
+.ipt .sp-la {
+    background: url(../images/login/asset\ 8.png) -43px -28px;
+}
+
+.ipt input {
+    width: 205px;
+    height: 18px;
+    padding: 9px 0;
+    margin-left: 5px;
+    border: none;
+    outline: none;
+}
+
+.ipt input::-webkit-input-placeholder {
+    color: rgb(219, 217, 217);
+}
+
+.conf input {
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+}
+
+.conf {
+    line-height: 32px;
+    font-size: 12px;
+    color: #959595;
+    width: 100%;
+    height: 32px;
+    margin-bottom: 12px;
+}
+
+.hidd {
+    display: none;
+}
+
+.dis {
+    display: block;
+}
+
+.sub input {
+    cursor: pointer;
+    color: white;
+    width: 245px;
+    height: 40px;
+    border: none;
+    font-size: 14px;
+    background: url(../images/login/asset\ 8.png) 0 -144px;
+}
+#admin-login .sub input{
+    position: relative;
+    background: url(../images/login/asset\ 8.png) 0 -288px;
+}
+.loginact {
+    width: 245px;
+    height: 15px;
+    margin-top: 15px;
+}
+
+a {
+    margin-right: 3px;
+    color: #a09d9d;
+    font-size: 12px;
+}
+
+a:hover {
+    color: #626262;
+}
+/* 登录尾部 */
+.login-ft{
+    height: 51px;
+    position: relative;
+    color:#a09d9d;
+    font-size: 12px;
+    padding: 15px  0 0 26px;
+}
+.login-ft span{
+    position: relative;
+    top:5px;
+    background:url(../images/login/asset\ 8.png);
+    height: 21px;
+    width: 18px;
+    display: inline-block;
+}
+.code{
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 64px;
+    width: 64px;
+    background: url(../images/login/asset\ 10.png);
+}
+#code-main .code{
+    background: url(../images/login/asset\ 10.png) 0 -64px;
+    position: absolute;
+    right: 15px;
+    bottom: 14px;
+}
+#code-main img{
+    position: relative;
+    top:2px;
+}
+.login-ft .code:hover{
+    
+    background: url(../images/login/asset\ 10.png) -64px 0;
+}
+span.iphone{
+    background:url(../images/login/asset\ 8.png) -20px 0;
+}
+
+
+
+
+
+
+
+
+
+.header,
+.footer {
+    line-height: 80px;
+    height: 64px;
+}
+
+.nav-ft {
+    line-height: 60px;
+}
+
+.nav-ft a {
+    margin: 0 5px;
+}
+
+.nav-ft img {
+    position: relative;
+    top: 4px;
+}
+
+.ft-img {
+    position: relative;
+    top: 10px;
+}

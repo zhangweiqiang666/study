@@ -1,0 +1,92 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/reg-bg.png);
+    background-size: 100%;
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.main {
+    width: 480px;
+    min-height: 630px;
+    margin-top: 2%;
+}
+
+.main>div>a {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.main>div>a:last-child {
+    font-size: 13px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+.register {
+    font-size: 14px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 3px gray;
+    color: rgb(148, 144, 144);
+    min-width: 480px;
+    min-height: 540px;
+    background: white;
+}
+
+input::-webkit-input-placeholder { 
+    color:#adabab;
+}
+input {
+    padding: 0 10px;
+    border: 2px solid #e2e1e1;
+    width: 330px;
+    height: 39px;
+}
+
+input[type=submit] {
+    margin-bottom: 25px;
+    background-color: #FD542D;
+    color: white;
+    border: none;
+}
+
+a {
+    color: #FD542D;
+    text-decoration: none;
+}
+
+span button {
+    border: none;
+    background: #F4F3F1;
+    height: 28px;
+    border-radius: 3px;
+    color: rgb(163, 160, 160);
+    margin-top: -9px;
+    margin-left: -90px;
+
+}
+
+.foot {
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+.foot span {
+    padding: 0 55px;
+    color: white;
+}
