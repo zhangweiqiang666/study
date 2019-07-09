@@ -237,6 +237,7 @@ window.onload = function () {
     var slider = document.getElementById('slider'),
         pic = document.getElementById('pic'),
         list = document.getElementById('list').getElementsByTagName('li'),
+        picHeight = slider.offsetHeight,
         index = 0,
         timer = null;
         // 上一张 下一张
@@ -284,7 +285,7 @@ window.onload = function () {
         }
         // 改变当前显示索引
         list[curIndex].className = "on";
-        pic.style.marginTop = -520 * curIndex + "px";
+        pic.style.marginTop = -picHeight * curIndex + "px";
         index = curIndex;
     }
 

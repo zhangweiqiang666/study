@@ -1,11 +1,12 @@
 window.onload = function () {
    
     // 轮播图
-    var wrap = document.getElementById('wrap'),
-        pic = document.getElementById('pic'),
-        list = document.getElementById('list').getElementsByTagName('li'),
-        index = 0,
-        timer = null;
+    var wrap = document.getElementById('wrap'), //主容器
+        pic = document.getElementById('pic'), //图片列表
+        list = document.getElementById('list').getElementsByTagName('li'), //索引按钮
+        picHeight = pic.offsetHeight, //获取元素的高度
+        index = 0,  //索引
+        timer = null; 
     var next = document.getElementById("arrow-right");
     var prev = document.getElementById("arrow-left");
     next.onclick = function () {
@@ -49,7 +50,7 @@ window.onload = function () {
         }
         // 改变当前显示索引
         list[curIndex].className = "on";
-        pic.style.marginTop = -379 * curIndex + "px";
+        pic.style.marginTop = -picHeight * curIndex + "px";
         index = curIndex;
     }
 

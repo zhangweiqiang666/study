@@ -25,7 +25,7 @@
         <div class="main">
             <div class="wrap w-main">
                 <div class="login" id="login">
-                    <div id="login-main" >
+                    <div id="login-main">
                         <div class="login-hd">
                             <div class="fl item" id="email">邮箱账号登录</div>
                             <div class="fl item" id="admin">管理员登录</div>
@@ -75,7 +75,7 @@
                     <div id="code-main" class="hidd">
                         <img src="../images/login/JY9(~X1C%X]OGM$0{P8$)F0.png" alt="" width="295px">
                         <div class="code" id="code2">
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -97,38 +97,38 @@
 </body>
 
 <script>
-    window.onload =function(){
-    var code1 =document.getElementById('code1');
-    var code2 =document.getElementById('code2');
-    var code_main= document.getElementById('code-main');
-    var login_main= document.getElementById('login-main');
-    var email = document.getElementById('email');
-    var admin = document.getElementById('admin');
-    var email_login = document.getElementById('email-login');
-    var admin_login = document.getElementById('admin-login');
-    var login = document.getElementById('login');
-    email.onclick = function () {
-        email_login.className = 'dis';
-        admin_login.className = 'hidd';
-        login.className = 'login login-bg1'
-    }
-    admin.onclick = function () {
-        email_login.className = 'hidd';
-        admin_login.className = 'dis';
-        login.className = 'login login-bg2'
-    }
+    window.onload = function () {
+        var code1 = document.getElementById('code1');
+        var code2 = document.getElementById('code2');
+        var code_main = document.getElementById('code-main');
+        var login_main = document.getElementById('login-main');
+        var email = document.getElementById('email');
+        var admin = document.getElementById('admin');
+        var email_login = document.getElementById('email-login');
+        var admin_login = document.getElementById('admin-login');
+        var login = document.getElementById('login');
+        email.onclick = function () {
+            email_login.className = 'dis';
+            admin_login.className = 'hidd';
+            login.className = 'login login-bg1'
+        }
+        admin.onclick = function () {
+            email_login.className = 'hidd';
+            admin_login.className = 'dis';
+            login.className = 'login login-bg2'
+        }
 
-    code1.onclick=function(){
-        code_main.className='dis';
-        login_main.className='hidd';
+        code1.onclick = function () {
+            code_main.className = 'dis';
+            login_main.className = 'hidd';
 
-    }
-    code2.onclick=function(){
-        code_main.className='hidd';
-        login_main.className='dis';
+        }
+        code2.onclick = function () {
+            code_main.className = 'hidd';
+            login_main.className = 'dis';
 
+        }
     }
-}
 </script>
 
 </html>

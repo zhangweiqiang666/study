@@ -20,7 +20,7 @@
     overflow: hidden;
 }
 
-#pic li {
+#pic li,#pic {
     background: url(../images/userstory/asset\ 105.jpeg) center;
     width: 100%;
     height: 379px;

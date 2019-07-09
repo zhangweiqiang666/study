@@ -1,0 +1,6 @@
+解决子div设置margin，父div随着改变位置的方法
+
+设置边框border
+清除浮动影响 overflow:hidden
+使用padding
+使用定位
