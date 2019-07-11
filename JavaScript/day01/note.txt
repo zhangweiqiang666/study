@@ -1,0 +1,43 @@
+JS变量
+ var关键字申明一个变量
+  var a = 1;
+	a =2;
+	a = 'hello'
+
+	var a=1, b=2, c=3;
+
+变量名命名规则
+	 1.由字母、数字、下划线、$组成
+	 2.不能以数字、下划线开始
+	 3.有特殊含义，采用小驼峰命名法
+	 4.不能谁用关键字和保留字
+
+数据类型
+	基本数据类型   5种
+	 undefined	声明了但是没有初始化的
+	            显示将undefined值赋值给一个变量
+
+	null类型	空 一般用来存放一个空对象的指针
+
+	boolean类型
+				有两个值 true false
+				var a =  true;
+				var b =  false;
+		
+	number类型
+			数字类型，数值类型
+
+	string类型 字符串类型
+
+
+
+引用数据类型 3种 /1种
+	Object 对象
+		var a={};
+		var a={name:'zhangweiqiag'};
+	Array 数组
+		var arr=[1,2,3];
+	Function 函数
+		function test(){}
+		var test =function(){}
+

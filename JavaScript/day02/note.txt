@@ -1,0 +1,27 @@
+JS
+ 
+  特点
+	1.浏览器端执行 node环境执行
+	2.解释性语言
+	3.弱类型语言
+	4.自上而下执行
+
+数据类型
+  基本数据类型
+		undefined
+		boolean
+		number
+		string
+		null
+
+	引用数据类型
+		Object {}  //写一些属性值
+		Function(){}
+		Array[]
+
+	typeof
+	  数据类型
+
+	操作符
+
+	 数据类型的转换
