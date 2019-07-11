@@ -14,10 +14,9 @@ function one() {}
 var one
 console.log(one)
 
-console.log(one) // fun 
+console.log(one()) // fun 
 function one(){
 	console.log('one')
 	}
-	one();
 var one = 123;
 console.log(one)
