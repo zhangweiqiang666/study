@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.fontFamily": "monospace",
+    "editor.fontSize": 24,
+    "files.autoSave": "afterDelay"
+}

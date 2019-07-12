@@ -1,6 +1,6 @@
-console.log(one()) // fun 
-function one(){
-	console.log('one')
-	}
-	
-var one = 123;
+console.log(a)
+function a() {
+	console.log(10)
+}
+a = 6;
+a();

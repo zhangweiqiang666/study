@@ -1,0 +1,52 @@
+复习
+    对象
+        创建对象
+        var obj = {}
+        访问属性
+            obj.name
+            obj['name']
+        遍历对象
+            for in 
+            for(var key in obj){
+            key ----->属性名
+            obj[key]---->变量值
+            }
+        删除属性
+             delete obj.name
+        新增属性
+            obj.name = ''
+        修改属性
+            obj.age = 11
+        判断是否是自有属性
+            obj.hasOwnProperty('name')
+        判断是否有某个属性 有可能是自有属性 有可能是继承属性
+            'name' in obj
+        判断是否是自有属性 并且可枚举
+            obj.propertyIsEnummerable('name)
+
+        Object原型中的属性和方法
+            construtot 构造函数
+
+     Object.prototype.construtot ===Object
+     Object.propertye.isPrototypeOf(obj)
+
+    函数
+        创建方式
+            function test(){}
+            var test = function(){}
+        属性
+            arguments
+            是一个类数组对象 保存实参
+                arguments.length 实参的个数
+                arguments.callee 函数 
+            this
+                函数运行的执行环境
+                    test(); 在test函数内部this->global对象或者Windows对象
+                    在nodejs环境中 global对象
+                    在浏览器环境中  Windows对象
+
+-------------------------------------
+调动方式
+ test(); global对象
+ test.call(test函数内部this指向的对象,参数1，参数2);  参数列表
+ 
