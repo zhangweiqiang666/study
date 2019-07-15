@@ -2,16 +2,17 @@ function swap(a, b) {
     var temp = a
     a = b
     b = temp
-		//console.log(a+ ' ' +b)
+    //console.log(a+ ' ' +b)
 }
 
+
 function Perm(arr, start, end) {
- var	res = ''
-    if (start == end-1) {
+    var res
+    if (start == end - 1) {
         for (let i = 0; i < end; i++) {
-            res += arr[i]
-//						console.log(res)
-					
+            res += arr[i] + ' '
+            console.log(res)
+            return res
         }
     } else {
         for (let i = start; i < end; i++) {
@@ -20,9 +21,8 @@ function Perm(arr, start, end) {
             swap(arr[i], arr[start])
         }
     }
-		console.log(res)
 }
 var arr = [1, 2, 3, 4, 5]
-Perm(arr, 0, 3)
+console.log(Perm(arr, 0, 3))
 
 //swap(111,222)

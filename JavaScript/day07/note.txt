@@ -1,0 +1,57 @@
+数组
+    方法
+        pop()
+        push()
+        unshift()
+        shift()
+        reverse()
+        sort()
+        concat()
+        slice()
+        splice() 删除 插入 替换
+        indexOf() 查找元素的索引
+        lastIndexOf()
+
+        every()
+        some()  有一个元素满足就返回true
+        filter() 
+        map()  映射某个元素的内容组成的数组
+        forEach() 遍历数组
+
+    对象的批量创建
+        1.工厂模式
+            function createObject(name,age){
+                return {
+                    name: name,
+                    age:age,
+                    sayName:function(){}
+                }
+            }
+            缺点：不分类别 方法浪费空间/封装不完全
+        2.构造函数模式
+            function Person(name, age){
+                this.name = name;
+                this.age = age;
+            }
+            var p1 = new Person('zhangsan',15)
+
+            问题：有类别 方法浪费空间 封装不完全
+        3.原型模式
+            function Person(){}
+            Person.prototype = {
+                constructor:Person,
+                name:'zhangsan',
+                age:14,
+                friends= []
+            }
+            有类别 方法好处理 数据共享
+
+        4.构造函数模式+原型模式
+            function Person(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            Person.prototype = {
+                constructor:prototype,
+                sayName:function(){}  
+            }
