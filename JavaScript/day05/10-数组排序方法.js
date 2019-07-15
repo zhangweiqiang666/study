@@ -44,9 +44,3 @@ function com(attr, rule) {
     }
 }
 console.log(stus.sort(com('age', 'asc')))
-
-
-sort(com)
-function com(){
-    return -1
-}
