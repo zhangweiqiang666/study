@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 {
     "terminal.integrated.fontFamily": "monospace",
     "editor.fontSize": 24,
     "files.autoSave": "afterDelay"
 }
+=======
+ {
+    "git.enabled": false,
+    "git.autofetch": false
+}
+>>>>>>> 7317a2aefe6a16c7292ea873b8ac0ffe2b616744

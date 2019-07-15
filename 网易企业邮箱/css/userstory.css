@@ -20,7 +20,11 @@
     overflow: hidden;
 }
 
+<<<<<<< HEAD
 #pic li,#pic {
+=======
+#pic li {
+>>>>>>> 7317a2aefe6a16c7292ea873b8ac0ffe2b616744
     background: url(../images/userstory/asset\ 105.jpeg) center;
     width: 100%;
     height: 379px;

@@ -49,4 +49,5 @@
 调动方式
  test(); global对象
  test.call(test函数内部this指向的对象,参数1，参数2);  参数列表
- 
+ test.apply(this,[1,2,3]) 参数数组
+ test.bind(this) 并不执行函数，更改this指向，返回的是一个函数 需要后加 () 执行
