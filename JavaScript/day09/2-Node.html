@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dom-Node</title>
+    <script>
+        console.log(document)
+        console.log(document.constructor)
+        console.log(HTMLDocument.prototype.__proto__.constructor)
+        // 文档加载完毕后在执行某段JS代码
+        window.onload = function () {
+            console.log(document.body)
+            console.log(document.body.nodeType) //节点类型 1
+            console.log(document.body.nodeName) //节点名称 全大写
+            console.log(document.body.nodeValue) //null
+        }
+    </script>
+</head>
+
+<body>
+    <div>hello</div>
+    <span>world</span>
+    <!-- comment 8 -->
+</body>
+
+</html>

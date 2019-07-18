@@ -32,7 +32,7 @@ function getTime(d) {
     var date = new Date(res[0], res[1] - 1, res[2], res[3], res[4], res[5])
     console.log(date)
     console.log(date.toString())
-    console.log(date.getTime())
+    console.log(date.getTime())  
     return date.getTime()
 }
 

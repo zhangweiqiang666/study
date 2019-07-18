@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格</title>
+    <script>
+        window.onload = function () {
+            var arr = [{
+                sno: 1001,
+                name: 'zhangsan',
+                age: '15'
+            }, {
+                sno: 1002,
+                name: 'zhangsan1',
+                age: '16'
+            }, {
+                sno: 1003,
+                name: 'zhangsan11',
+                age: '17'
+            }]
+            var btn = document.getElementsByTagName('button')[0];
+            var tbody = document.getElementsByTagName('tbody')[0];
+            btn.onclick = function () {
+                //数组中的一个对象->tr
+                // 对象的属性值 -> td
+                // 清空tbody
+                tbody.innerHTML = '';
+                arr.forEach(function (item) {
+                    var newTr = document.createElement('tr');
+                    //创建td
+                    tbody.appendChild(newTr)
+                    for (var key in item) {
+                        var newTd = document.createElement('td');
+                        newTr.appendChild(newTd)
+                        newTd.innerText = item[key];
+                    }
+                })
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button>加载数据</button>
+    <table>
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+
+</html>

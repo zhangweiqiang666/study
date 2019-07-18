@@ -1,0 +1,60 @@
+正则表达式
+    /正则表达式语法/img 
+    模式次数
+    模式：
+        直接量 a b c
+        字符类
+            .
+            \d
+            \D
+            \w
+            \W
+            \s
+            \S
+            ...\n
+        字符组
+            [xyz]
+            [^xyz]
+        位置
+            ^
+            $
+            \b  单词与单词之间
+            \B  字符与字符之间
+        分组
+            (hello){2}
+        次数
+            *
+            +
+            ?
+            {2}
+            {2,}
+            {2,5}
+包装器
+    Number
+    String
+    Boolean
+    装箱操作，拆箱操作
+Math对象
+    Math.min(,,,)
+    Math.max(,,,)
+    Math.ceil(num)     向上取整
+    Math.floor(num)    向下取整
+    Math.round(num)    四舍五入
+    Marh.radom()       [0,1)
+        
+Date对象
+    new Date
+    new Date(时间戳)
+    getFullYear() 年
+    getMonth()+1  月
+    getDate()     日
+    getDay()      星期
+    getHours()    时
+    getMinutes()  分
+    getSeconds()  秒
+    getTime() 获取的时间对象对应的时间戳表示
+
+面向对象编程
+    批量创建对象
+    封装
+    继承
