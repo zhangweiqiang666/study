@@ -1,0 +1,55 @@
+Object属性操作
+    对象属性的特性
+        configurable delete删除 能否重新被定义
+        enumerable 可枚举的
+        writable 值是否可修改
+        value 值属性
+    获取属性的特性
+        Object.getOwnPropertyDescriptor(obj,'name') 
+    设置属性的特性
+        Object.defineProperty(obj,'name'，{
+
+        })
+    批量设置属性的特性
+          Object.defineProperties(obj,{
+              name{
+
+              },
+              age{
+
+              }
+        })
+    
+    属性：数据属性 访问器属性
+    Object.defineProperty(obj,'weight',{
+        get:function(){
+            return this._weight
+        },
+        set:function(param){
+            this._weight = param
+        }
+        enumerable:true
+    })
+
+    正则表达式
+        JS中正则表达式的使用
+            创建正则表达式对象
+                1.new RegExp('hello','img')
+                2./hello\d\w+/ig
+            使用
+                1.正则表达式对象的属性或方法
+                    pattern.global g
+                    pattern.ignoreCase i
+                    pattern.multiline m
+                    pattern.test(str) true/false
+                    pattern.exec(str) [''] / null
+                    pattern.lastIndex 下此检索的位置
+                2.String类型对正则表达式的支持方法
+                    str.search(/hello/i) 位置 / -1
+                    str.match(/hello/i) ['','','',''] / null
+                    str.replace(/hello/ig, 'JavaScript') //全文替换
+                    str.split('&');(/&/) // 字符串的裁切 返回数组
+
+        正则表达式
+            模式次数
+                /\d\w/
