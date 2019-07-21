@@ -1,0 +1,62 @@
+原型链继承
+Dog.prototype  =  new Animal()
+Dog.prototype.constructor = Dog
+
+DOM操作
+    Node类型
+        nodeType
+        nodeName
+        nodeValue
+        childNodes
+        parent.appendChild(node)
+        parent.insertBefore(node,参照节点)
+        parent.removeChild(node)
+
+    Document类型
+        document实例
+        body <body>
+        getElementById('one')
+        getElementByTagName('div')
+        getElementByClassNane('name')
+        创建元素节点
+            createElement('div')
+    
+    Element类型
+        <div class = "one" title = "hello">hello</div>
+        divNode.title = 'world';
+        获取属性值
+            元素节点.属性名
+            元素节点.getAttribute('title')
+        设置属性值
+            元素节点.属性名 = '属性值'
+            元素节点.getAttribute('title','world')
+        删除属性
+            元素节点.getAttribute
+        设置css样式
+            元素节点.style.color = 'blue'
+
+事件
+    click
+    mouseover
+    mouseout
+    mouseenter
+    mouseleave
+    dbclick
+    focus 聚焦
+    blur 失去焦点
+    load 加载
+
+    事件三要素
+        事件目标    谁触发的事件
+        事件处理程序 function(){}
+        事件对象 
+            event
+                type:
+                target:
+        事件流
+            事件捕获流  从外到内
+            事件冒泡流  从内到外
+            DOM事件流   
+                先事件捕获
+                再处理事件
+                再冒泡

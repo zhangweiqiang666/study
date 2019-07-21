@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        .div1{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            background-color: bisque
+        }
+        .div2 {
+            width: 300px;
+            height: 300px;
+            line-height: 300px;
+            margin: 50px auto;
+            text-align: center;
+            background-color: yellow;
+
+            /* transform: translate(-10px, -10px) rotate(1deg); */
+            /* padding: 100px 0; */
+            clip-path: inset(2em 1em 5em 2em round 3em 10em 2em 2em);
+            /* inset()可以传入5个参数，分别对应top,right,bottom,left的裁剪位置,round radius（可选，圆角)*/
+            clip-path: circle(100px at 0px 30px);
+            /* circle()可以传人2个可选参数； */
+            /* 1. 圆的半径，默认元素宽高中短的那个为直径，支持百分比 */
+            /* 2. 圆心位置，默认为元素中心点 */
+
+            /* clip-path: ellipse(45% 30% at 50% 50%); */
+            /* ellipse()可以传人3个可选参数； */
+            /* 1. 椭圆的X轴半径，默认是宽度的一半，支持百分比 */
+            /* 2. 椭圆的Y轴半径，默认是高度的一半，支持百分比 */
+            /* 3. 椭圆中心位置，默认是元素的中心点 */
+            /* clip-path: polygon(0 20%, 50% 0, 100% 20%, 80% 20%,80% 100%,20% 100%,20% 20%); */
+            /* <fill-rule>可选，表示填充规则用来确定该多边形的内部。可能的值有nonzero和evenodd,默认值是nonzero */
+            /* 后面的每对参数表示多边形的顶点坐标（X,Y），也就是连接点 */
+
+               clip-path: polygon(48% 0, 0 78%, 33% 77%, 0 27%, 100% 25%, 64% 76%, 49% 100%, 34% 77%, 64% 76%, 100% 77%)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <div class="div2">示例</div>
+    </div>
+
+</body>
+
+</html>

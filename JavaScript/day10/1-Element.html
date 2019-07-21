@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red {
+            background: red;
+        }
+
+        .blue {
+            background: blue;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var div = document.body.children[0];
+            // console.log(div);
+            // console.log(document.body.firstElementChild)
+            // 获取属性值
+            console.log(div.className) //red
+            console.log(div.title); //我是div
+            console.log(div.getAttribute('class'))
+            console.log(div.getAttribute('data-flag')) //访问自定义属性
+            console.log(div.style)
+            console.log(div.getAttribute('style'))
+            div.style.color = 'yellow';
+            // div.style.backgroundColor = 'red';
+            console.log(div.getAttribute('style'))
+            console.log(div.onclick) //函数
+            console.log(div.getAttribute('onclick')) //字符串
+
+            //更改属性值
+            div.title = 'hello'
+            div.setAttribute('title', 'world')
+
+            //移除属性
+            div.removeAttribute('title')
+            //所有属性组成的类数组对象
+            console.log(div.attributes)
+            console.log(div.attributes[0])
+            //获取内部内容
+            console.log(div.innerHTML)
+            console.log(div.innerText)
+            console.log(div.textContent)
+
+            div.innerHTML +=  `<div>
+                <p>sahdju<p>
+                </div>`
+        
+            
+        }
+
+        function test() {
+            var div = document.getElementById('one')
+            str = 'red';
+            if (div.className === 'red') {
+                str = 'blue'
+            }
+            div.className = str
+            // div.className = 'red' ? 'blue' : 'red';
+        }
+    </script>
+</head>
+
+<body>
+    hello
+    <div id="one" class="red" title="我是div" data-flag="1001" style="color: cyan" onclick="test()">
+        one
+        two
+        three
+        <span>four</span>
+    </div>
+</body>
+
+</html>

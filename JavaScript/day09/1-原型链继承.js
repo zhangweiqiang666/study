@@ -14,14 +14,17 @@ function Dog(name, age, color) {
     // this.name = name
     // this.age = age
     //经典继承
-    Animal.call(this,name,age)
+    Animal.call(this, name, age)
     this.color = color
 }
- Dog.prototype = new Animal()
- Dog.prototype.constructor = Dog
-var dog = new Dog('沙雕',2,'yellow')
+Dog.prototype = new Animal()
+Dog.prototype.constructor = Dog
+var dog = new Dog('沙雕', 2, 'yellow')
 dog.sayName()
 console.log(dog)
 
 //Array
 console.log(Array.prototype.__proto__.constructor)
+
+var m = 'abcabc'.match(/(.)b(.)/);
+console.log(m) // ['abc', 'a', 'c']
