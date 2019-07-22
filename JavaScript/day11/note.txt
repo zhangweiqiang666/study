@@ -1,0 +1,34 @@
+事件
+    三要素
+        事件目标 e.target
+        事件处理程序
+        事件对象 event
+                target  
+                currentTarget 当前正在 处理的事件目标 === this
+        事件的绑定与解绑
+            1.HTML事件处理程序
+                <div onclick = "test()"></div>
+            2.DOM0级处理程序
+                div.onclick = function(e){}
+                非IE8及以上浏览器 event
+                IE8级及以下浏览器 window.event
+                div.onclick = null 解绑
+            3.DOM2级事件处理程序
+                非IE8及以上浏览器
+                    div.addEventListener('click',haddle,false);
+                    参数：事件类型 事件处理程序 执行阶段
+                        false -->冒泡阶段执行
+                        true -->捕获阶段执行
+                        如果同一节点同一事件类型绑定了多个事件处理程序，依次执行
+                        div.removeEventListener('click',haddle,false)
+                        匿名函数无法解绑
+                        function haddle(event){}
+                IE8级及以下浏览器
+                    div.attachEvent('onclick'，haddle)
+                    如果同一节点同一事件类型绑定了多个事件处理程序，逆序执行
+                    参数： on+事件类型 事件处理程序
+                    div.detachEvent('onclick',haddle)
+            
+            浏览器兼容的事件处理代码
+            1.事件绑定
+            2.

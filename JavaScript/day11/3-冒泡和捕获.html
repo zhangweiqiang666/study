@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>冒泡阶段和捕获阶段</title>
+    <script>
+        window.onload = function () {
+            var outer = document.getElementById('outer');
+            var center = document.getElementById('center');
+            var inner = document.getElementById('inner');
+
+            function haddle(event) {
+                console.log(this,'冒泡阶段')
+            }
+             function haddle2(event) {
+             console.log(this,'捕获阶段')
+             } 
+             //在捕获阶段执行
+            outer.addEventListener('click', haddle2,true)
+            center.addEventListener('click', haddle2,true)
+            inner.addEventListener('click', haddle2,true)
+            //冒泡阶段执行
+            outer.addEventListener('click', haddle)
+            center.addEventListener('click', haddle)
+            inner.addEventListener('click', haddle)
+
+        }
+    </script>
+    <style>
+        div {
+            margin: 0 auto;
+
+        }
+
+        #outer {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        #center {
+            width: 200px;
+            height: 200px;
+            background-color: cyan;
+        }
+
+        #inner {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="center">
+            <div id="inner"></div>
+        </div>
+    </div>
+</body>
+
+</html>

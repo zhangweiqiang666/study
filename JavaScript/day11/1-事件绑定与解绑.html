@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件绑定与解绑</title>
+    <script>
+    window.onload = function(){
+        var div = document.getElementsByTagName('div')[0];
+        var btn = document.getElementsByTagName('button')[0];
+        btn.onclick = function(){
+            div.onclick = null
+            alert('div解绑成功')
+            this.onclick = null;
+            this.style.background = '#ccc';
+            this.style.color = '#c1c2c3'
+        }
+        div.onclick = function(){
+            alert(1)
+        }
+    }
+    </script>
+</head>
+<body>
+    <div>点击</div>
+    <button>解绑</button>
+</body>
+</html>

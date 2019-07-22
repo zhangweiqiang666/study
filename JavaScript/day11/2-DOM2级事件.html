@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM2级</title>
+    <script>
+        window.onclick = function () {
+            var div = document.getElementsByTagName('div')[0];
+
+            function haddle1() {
+                alert(1)
+            }
+              function haddle2() {
+              alert(2)
+              }
+            div.addEventListener('click',haddle1, false);
+            div.addEventListener('click', haddle2, false);
+            div.removeEventListener('click',haddle1 , false)
+            // div.onclick = function () {
+            //     alert(3)
+            // }
+            // div.onclick = function () {
+            //     alert(4)
+            // }
+            //IE8及以下
+            div.attachEvent('onclick',haddle1)
+            div.attachEvent('onclick',haddle2)
+            div.detachEvent('onclick',haddle1)
+        }
+    </script>
+</head>
+
+<body>
+    <div>点击我</div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>兼容性代码</title>
+    <script>
+        var eventUtil = {
+            // 1.事件绑定
+            bind: function (el, type, haddle) {
+                if (el.addEventListener) {
+                    el.addEventListener(type, haddle);
+                } else if (el.attachEvent) {
+                    el.attachEvent('on' + type, haddle)
+                } else {
+                    el['on' + type] = haddle;
+                }
+            },
+            // 2.事件解绑
+            unbind: function (el, type, haddle) {
+                if (el.removeEventListener) {
+                    el.removeEventListener
+                } else if (el.datechEvent) {
+                    el.datechEvent('on' + type, haddle)
+                } else {
+                    el['on' + type] = null
+                }
+            },
+            // 3.事件对象
+            getEvent: function (event) {
+                return event ? event : window.event;
+            },
+            // 4.事件目标
+            getTarget: function (event) {
+                return event.target ? event.target : event.srcElement;
+            },
+            // 5.停止冒泡
+            stopProp: function (event) {
+                if (even.stopPropagation) {
+                    event.stopPropagation()
+                } else {
+                    event.cancelBubble()
+                }
+            },
+            // 6.阻止默认
+            preventDef: function (event) {
+                if (event.preventDefault) {
+                    event.preventDefault()
+                } else {
+                    event.returnValue = false;
+                }
+            }
+
+        }
+        window.onload = function () {
+            var div = document.getElementsByTagName('div')[0];
+            eventUtil.bind(div, 'click', function (event) {
+                var e = eventUtil.getEvent;
+                console.log(e)
+                alert(1)
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div>hello</div>
+</body>
+
+</html>

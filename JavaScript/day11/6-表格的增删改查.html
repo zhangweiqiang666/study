@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格的增删改查</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+    </style>
+    <script>
+        var stus = [{
+            id: 1001,
+            name: 'zhangsan',
+            age: 15,
+            gender: '男'
+        }, {
+            id: 1002,
+            name: 'zhangsan2',
+            age: 18,
+            gender: '男'
+        }, {
+            id: 1003,
+            name: 'zhangsan3',
+            age: 19,
+            gender: '女'
+        }, {
+            id: 1004,
+            name: 'zhangsan4',
+            age: 13,
+            gender: '男'
+        }, {
+            id: 1005,
+            name: 'zhangsan5',
+            age: 16,
+            gender: '女'
+        }, ]
+        window.onload = function () {
+            var tbody = document.getElementsByTagName('tbody')[0];
+            var batchDeleteBtn = document.getElementById('batchdelete');
+            var addBtn = document.getElementById('add');
+            var str = '';
+            stus.forEach(function (item) {
+                str += `
+                            <tr>
+                                <td><input type="checkbox"> </td>
+                                <td>` + item.name + `</td>
+                                <td>` + item.age + `</td>
+                                <td>` + item.gender + `</td>
+                                <td><button>删除</button> </td>
+                            </tr>
+                `
+            })
+            tbody.innerHTML = str;
+            // tbody给删除按钮做代理
+            tbody.onclick = function () {
+                var target = event.target;
+                if (target.nodeName === 'BUTTON') {
+                    this.removeChild(target.parentNode.parentNode)
+                }
+            }
+            //批量删除
+            batchDeleteBtn.onclick = function () {
+                // 获取所有的用户选中的input，循环删除对应的tr
+                var inputs = document.getElementsByTagName('input');
+                inputs = Array.prototype.slice.call(inputs, 0);
+                var inputsRes = inputs.filter(function (item) {
+                    return item.checked == true
+                })
+                if (inputsRes.length > 0) {
+                    inputsRes.forEach(function (item) {
+                        console.log(item)
+                        tbody.removeChild(item.parentNode.parentNode)
+                    })
+                }
+            }
+            addBtn.onclick = function () {
+                var newTr = document.createElement('tr');
+                var str = `<tr>
+                    <td><input type="checkbox"> </td>
+                    <td>zwq</td>
+                    <td>20</td>
+                    <td>男</td>
+                    <td><button>删除</button> </td>
+                    </tr>`;
+                tbody.innerHTML += str;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="add">新增</button>
+    <button id="batchdelete">批量删除</button>
+    <table>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>名字</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <!-- 放置删除按钮 -->
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td><input type="checkbox"> </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button>删除</button> </td>
+            </tr> -->
+        </tbody>
+    </table>
+</body>
+
+</html>

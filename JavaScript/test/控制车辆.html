@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>控制车辆</title>
+    <style>
+        #car {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 110px;
+            height: 165px;
+            background: url(./images/2.png)
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var car = document.getElementById('car');
+            speed = 20;
+
+            function moveLeft() {
+                car.style.transform = 'rotateZ(270deg)'
+                car.style.left = car.offsetLeft - speed + 'px';
+            }
+
+            function moveUp() {
+                car.style.transform = 'rotateZ(0deg)'
+                car.style.top = car.offsetTop - speed + 'px';
+            }
+
+            function moveRight() {
+                car.style.transform = 'rotateZ(90deg)'
+                car.style.left = car.offsetLeft + speed + 'px';
+            }
+
+            function moveDown() {
+                car.style.transform = 'rotateZ(180deg)'
+                car.style.top = car.offsetTop + speed + 'px';
+            }
+
+            function keyDown(e) {
+
+                var keycode = e.which; //取得对应的键值（数字）
+
+                // var realkey = String.fromCharCode(e.which); //取得代表改键的真正字符
+
+                console.log("按键码: " + keycode);
+
+                switch (keycode) {
+                    case 37: //左
+                        moveLeft();
+                        break;
+                    case 38: //上
+                        moveUp();
+                        break;
+                    case 39: //右
+                        moveRight();
+                        break;
+                    case 40: //下
+                        moveDown();
+                        break;
+                }
+            }
+
+            document.onkeydown = keyDown
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="car"></div>
+
+</body>
+
+</html>

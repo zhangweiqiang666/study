@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>椭圆</title>
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            border: 1px solid red;
+            background-color:cyan;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var ellipse = document.getElementById('ellipse');
+            ellipse.style.clipPath = 'ellipse(49% 49% at 50% 50%)'
+        }
+    </script>
+</head>
+
+<body>
+    <div id="ellipse">
+    </div>
+</body>
+
+</html>
