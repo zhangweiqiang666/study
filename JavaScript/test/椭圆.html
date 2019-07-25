@@ -8,23 +8,39 @@
     <title>椭圆</title>
     <style>
         div {
-            width: 500px;
-            height: 300px;
-            border: 1px solid red;
-            background-color:cyan;
+            border-radius: 50%;
+            background-color: #ec7bb37a;
+            position: absolute;
         }
     </style>
     <script>
         window.onload = function () {
-            var ellipse = document.getElementById('ellipse');
-            ellipse.style.clipPath = 'ellipse(49% 49% at 50% 50%)'
+            var div, startX, startY;
+
+            document.onmousedown = function (e) {
+                console.log(e);
+                div = document.createElement('div');
+                startX = e.clientX;
+                startY = e.clientY;
+                div.style.left = startX + 'px';
+                div.style.top = startY + 'px';
+                document.body.appendChild(div)
+            }
+            document.onmousemove = function (e) {
+                if (div) {
+                    div.style.width = e.clientX - startX + 'px';
+                    div.style.height = e.clientY - startY + 'px';
+                }
+            }
+            document.onmouseup = function (e) {
+                div = null
+            }
+
         }
     </script>
 </head>
 
 <body>
-    <div id="ellipse">
-    </div>
 </body>
 
 </html>

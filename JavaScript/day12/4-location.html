@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Location</title>
+    <script>
+        console.log(location);
+        window.onload = function () {a
+            var btn = document.getElementsByTagName('button');
+            btn[0].onclick = function () {
+                // location.href = './3-弹出框.html';
+                location.replace('./3-弹出框.html') //无法返回
+                window.open('./3-弹出框.html') //在新的选项卡中打开
+            }
+            btn[1].onclick = function(){
+                //参数默认为false 参数如果为true 强制从服务器中读取数据
+                location.reload();
+                
+            }
+            btn[2].onclick = function(){
+                history.forward();  
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button>打开新页面</button>
+    <button>刷新</button>
+    <button>下一页</button>
+</body>
+
+</html>

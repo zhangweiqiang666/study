@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX</title>
+    <script>
+        // js原生的ajax
+        // 获取所有的数据
+        getAllData();
+
+        function getAllData() {
+            //创建实例
+            var http = new XMLHttpRequest();
+            // 发送请求的方式和url
+            http.open('GET', 'http://api.wangshuwen.com/getRegion');
+            // 箭筒http对象状态发生更改
+            http.onreadystatechange = function () {
+                if (http.status === 200 && http.readyState === 4) {
+                    var res = http.responseText;
+                    console.log(JSON.parse(res));
+                    console.log(JSON.parse(res).data)
+                    // 遍历数组 追加节点
+                    var arr = JSON.parse(res).data
+                }
+            }
+            http.send()
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

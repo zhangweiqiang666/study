@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 两秒之后输出Hello
+        // var id = setTimeout(function () {
+        //     console.log('Hello')
+        // }, 5000);
+        // console.log('-------------')
+        // setTimeout(function () {
+        //     console.log(2000)
+        //     clearTimeout(id)
+        // }, 2000)
+        // 每隔一秒输出1
+        var id1 = setInterval(function () {
+            console.log(1)
+        }, 1000)
+        setTimeout(function () {
+            clearInterval(id1)
+        }, 10000)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

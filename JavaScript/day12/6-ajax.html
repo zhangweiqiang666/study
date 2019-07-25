@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX</title>
+    <script>
+        window.onload = function () {
+            // 给后台传递数据的ajax
+            // 发送post请求 并且携带参数
+            saveOrUpdateCategory({
+                name: '重金求子',
+                comment: 'zwq',
+                no: 11
+            })
+            findAllCategory()
+            
+             // 查找数据
+            function findAllCategory() {
+                var http = new XMLHttpRequest();
+                http.open('GET', 'http://134.175.154.93:8099/manager/category/findAllCategory')
+                http.onreadystatechange = function () {
+                    if (http.status === 200 && http.readyState === 4){
+                        console.log(http.responseText);
+                    }
+                }
+                http.send()
+            }
+            // 添加数据
+            function saveOrUpdateCategory(obj) {
+                var http = new XMLHttpRequest();
+                http.open('POST', 'http://134.175.154.93:8099/manager/category/saveOrUpdateCategory');
+                // 监听 如果响应完成并且响应成功 获取响应数据
+                http.onreadystatechange = function () {
+                    if (http.status === 200 && http.readyState === 4) {
+                        console.log(http.responseText);
+                    }
+                }  // 设置请求头
+                http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')  
+                // 传递表单格式数据
+                http.send(encodeFormData(obj));
+
+            }
+
+           // 将js的对象转换成表单格式的数据
+            function encodeFormData(data) {
+                if (!data) {
+                    return "";
+                }
+                var pairs = [];
+                for (var name in data) {
+                    if (!data.hasOwnProperty(name)) {
+                        continue;
+                    }
+                    if (typeof data[name] == "function") {
+                        continue;
+                    }
+                    var value = data[name].toString();
+                    name = encodeURIComponent(name.replace("%20", "+")); //编码名字
+                    value = encodeURIComponent(value.replace("%20", "+")); //编码值
+                    pairs.push(name + "=" + value);
+                }
+                return pairs.join('&');
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

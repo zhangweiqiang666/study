@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX</title>
+    <script src="./ajax.js"></script>
+    <style>
+        * {
+            color: rgb(73, 73, 73);
+        }
+
+        input[type=text] {
+            width: 200px;
+            height: 35px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-right: 10px;
+            color: white;
+            cursor: pointer;
+            height: 30px;
+            padding: 0 10px;
+            border: none;
+            border-radius: 5px;
+            background-color:#FF9999;
+        }
+        button:first-child{
+           background-color:#FF9966;
+        }
+        table {
+
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        td,
+        th {
+            /* border-bottom: 1px solid rgb(233, 233, 233); */
+            text-align: center;
+            height: 45px;
+
+        }
+
+        tr:nth-child(odd) {
+            background-color: rgba(236, 236, 236, 0.233);
+            /* background-color: #fff; */
+        }
+
+        thead tr {
+            background-color: #FFCCCC!important;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FFCCCC;
+            /* background-color: #fff; */
+        }
+
+
+
+        #msg {
+            padding: 10px 20px;
+            border: 1px solid rgb(255, 232, 252);
+            border-radius: 10px;
+            background-color: #fff;
+            width: 295px;
+            height: 230px;
+            position: fixed;
+            top: 100px;
+            left: 35%;
+        }
+
+        #msg button {
+            width: 120px;
+        }
+
+        .hidd {
+            display: none;
+        }
+
+        .on {
+            display: block;
+        }
+        .fr{
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 80%; margin:0 auto;">
+
+        <div id="msg" class="hidd">
+            <div class="fr">name：<input type="text" name="" id="" placeholder="请输入name"></div>
+            <div class="fr">comment：<input type="text" name="" id="" placeholder="请输入comment"></div>
+            <div class="fr">no：<input type="text" name="" id="" placeholder="请输入no"></div>
+            <div class="fr">parent：<input type="text" name="" id="" placeholder="请输入parent"></div>
+            <div><button id="submit">确定</button>
+                <button id="cancel" style="float: right">取消</button></div>
+        </div>
+        <div style="padding:10px; border-radius: 10px; border: 1px solid rgb(204, 204, 204)">
+                    <button id="add" style="margin-bottom: 15px">新增</button>
+                    <button id="batchdelete">批量删除</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th><input id="allcheck" type="checkbox">全选</th>
+                        <th>name</th>
+                        <th>comment</th>
+                        <th>no</th>
+                        <th>parent</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

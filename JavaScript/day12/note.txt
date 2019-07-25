@@ -1,0 +1,4 @@
+使用post传递表单格式的数据
+    1.设置请求头Content-Type：'application/x-www-from-urlencoded'
+    2.将要发送的数据转成表格式的数据再发送
+     http.send(发送的数据)
