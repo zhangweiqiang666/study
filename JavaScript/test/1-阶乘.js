@@ -6,3 +6,8 @@ sum *= n
 n--
 	}
 	console.log(sum)
+	
+
+
+	var name;
+	console.log(typeof name === undefined)
