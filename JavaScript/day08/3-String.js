@@ -13,6 +13,7 @@ for (let i = 0; i < str.length; i++) {
 }
 console.log(str.trim())  // 除去两端空格
 console.log(str.replace(/ /g, '')) //除去全部空格
+var str = ' a bc   de  fg '
 var res = str.split(' ')
 console.log(res)
 console.log(res.join('')) 

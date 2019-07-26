@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择器</title>
+    <style>
+        .outer {
+            /* float: left; */
+            border: 1px solid blueviolet;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .inner {
+            border: 1px solid red;
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            var $res = $('.outer > .inner');
+            var $res = $('.one + ');
+            var $res = $('.one ~'); //之后所有的兄弟元素
+            var $res = $('.outer .inner:first');//所有inner中的第一个
+            var $res = $('.outer .inner:last'); //所有inner中的最后一个
+            var $res = $('.outer .inner:even'); //所有inner中的偶数位元素(从0开始)
+            var $res = $('.outer .inner:odd'); //所有inner中的奇数位的元素(从0开始)
+            var $res = $('.outer .inner:eq(2)'); //所有inner中索引位2的元素
+            var $res = $('.outer .inner:lt(2)'); //所有inner中索引小于2的
+            var $res = $('.outer .inner:gt(2)'); //所有inner中索引大于2的
+            var $res = $('.outer .inner:not(:lt(2))'); //所有inner中除了()中的
+            var $res = $('.outer :header'); //选择标题元素
+            var $res = $('.outer :contains("o")'); //内容中包含o的元素
+            $res.css('background', 'red');
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+        <div class="inner one"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <h1 >Hello</h1>
+        <h4 >World</h4>
+        <!-- <div>
+            <div class="inner"></div>
+        </div> -->
+    </div>
+    <div class="outer">
+        <div class="inner"></div>
+        <div class="inner one"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div>
+    <div class="outer">
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div>
+</body>
+
+</html>

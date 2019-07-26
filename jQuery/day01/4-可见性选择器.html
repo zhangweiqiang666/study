@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可见性选择器</title>
+    <style>
+        .one {
+            display: none;
+        }
+
+        .two {
+            visibility: hidden;
+        }
+
+        .three {
+            opacity: 0;
+        }
+    </style>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            var $res = $(':hidden');
+            var $res = $(':visible');
+            var $res = $('[title~=one]')
+            console.log($res);
+
+        });
+    </script>
+</head>
+
+<body>
+    <div title="one1 one">hello</div>
+    <div class="one">
+        display:none
+    </div>
+    <div class="two" >
+        visibility: hidden;
+    </div>
+    <div class="three">
+        opacity: 0;
+    </div>
+
+</body>
+
+</html>

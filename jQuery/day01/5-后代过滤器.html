@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>后代过滤器</title>
+    <style>
+        .outer {
+            /* float: left; */
+            border: 1px solid blueviolet;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .inner {
+            border: 1px solid red;
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function(){
+            // 选中每一个outer中的第一个inner
+            var res = $('.outer .inner:first-child')
+            res.css('background','red')
+        })
+    </script>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+        <div class="inner one"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div>
+    <div class="outer">
+        <div class="inner"></div>
+        <div class="inner one"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div>
+    <div class="outer">
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div>
+</body>
+
+</html>

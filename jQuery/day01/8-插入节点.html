@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>插入节点</title>
+    <style>
+        .outer {
+            border: 1px solid red
+        }
+    </style>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            var $newSPan = $('<span>world</span>')
+            console.log($newSPan)
+            // $('.outer').append($newSPan);
+            // // 克隆节点
+            // var $clone = $newSPan.clone(); //浅复制不复制事件 深复制复制事件
+            // $('.outer').prepend($clone);
+            // $newSpan作为兄弟节点追加到之后
+            $('.outer').after($newSPan);
+            $('.outer').before($newSPan);
+        })
+    </script>
+</head>
+
+<body>
+    <div class="outer">
+        <span>hello</span>
+    </div>
+    <div class="outer">
+        <span>hello</span>
+    </div>
+
+
+</body>
+
+</html>

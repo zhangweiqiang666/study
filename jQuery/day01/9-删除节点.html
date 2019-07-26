@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .outer {
+            border: 1px solid rebeccapurple;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .inner {
+            height: 50px;
+            width: 50px;
+            margin: 10px;
+            float: left;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            var $res = $('.outer .inner:first-child');
+            $('.inner').click(function(){
+                alert(1)
+            })
+            console.log($res);
+            
+            // 删除不保留原先的事件
+            // var $rm = $res.remove();
+
+            // 删除保留原先事件
+            // var $rm = $res.detach(':first');
+
+            // 清空选中的子节点
+            var $rm = $res.empty();
+            console.log($rm)
+            //  $('.outer').append($rm)
+        })
+    </script>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">1</div>
+        <div class="inner">2</div>
+        <div class="inner">3</div>
+        <div class="inner">4</div>
+    </div>
+    <div class="outer">
+        <div class="inner">1</div>
+        <div class="inner">2</div>
+        <div class="inner">3</div>
+        <div class="inner">4</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>遍历节点</title>
+    <style>
+        .outer {
+            border: 1px solid rebeccapurple;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .inner {
+            height: 50px;
+            width: 50px;
+            margin: 10px;
+            /* float: left; */
+            border: 1px solid red;
+        }
+    </style>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            // 子代节点
+            $res = $('.outer').children('.inner');
+            // console.log($('.outer > .inner'));
+            console.log($res);
+            // 后代节点
+            $res = $('.outer').find('.inner');
+            $res = $('.inner').parent('.outer')
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            子代inner
+        </div>
+        <div>
+            <div class="inner">
+                后代inner
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

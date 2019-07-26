@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单选择器</title>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            
+            $('form :checkbox').click(function () {
+                // alert(1);
+                var arr;
+                var $res = $('form :checkbox:checked');
+                // console.log($res)
+                // 1.获取内部的DOM 获取对应的value属性值 放到arr
+                // 2.将$res转成数组 然后再映射出来value
+                // 3.使用jQuery对象提供的map方法 将value映射出来
+               var $arr = $res.map(function (index, item) {
+                    //item DOM
+                    // console.log(index,item)
+                    return $(item).val();
+                }); 
+                 arr = Array.prototype.slice.call($arr,0)
+            console.log(arr)
+            });
+          
+        });
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <div><input type="text" name="" id=""></div>
+        <div><input type="checkbox" name="" id="" value="1">
+            <input type="checkbox" name="" id="" value="2">
+            <input type="checkbox" name="" id="" value="3">
+            <input type="checkbox" name="" id="" value="4"></div>
+    </form>
+</body>
+
+</html>

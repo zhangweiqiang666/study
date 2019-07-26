@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>复制节点</title>
+    <style>
+    div{
+        border: 1px solid red;
+        height: 50px;
+        width: 50px;
+    }
+    </style>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+    $(function(){
+        $('.one').click(function(){
+            alert(1);
+        });
+        //clone()复制元素本身 复制子节点 默认false 浅复制 不复制事件。true深复制 复制事件 
+        // js中 cloneNode(true/false) 深复制赋值子节点 浅复制不复制子节点
+        var $clone = $('.one').clone(true);
+        // $('body').append($clone);
+        // $('.one').replaceWith($('<div>hello</div>'))
+        $('<div>world</div>').replaceAll($('.one'))
+    })
+    </script>
+</head>
+<body>
+    <div class="one">one</div>
+    <div class="two">two</div>
+</body>
+</html>
