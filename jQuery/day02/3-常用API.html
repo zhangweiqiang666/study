@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常用API</title>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            // // $('div')选中了多个 使用html()获取内部内容 拿到的是第一个
+            // console.log($('div').html());
+
+            // // $('div')选中了多个 使用text()获取内部文本 拿到的是全部元素的文本
+            // console.log($('div').text());
+
+            // //
+            // console.log($('input')[1].value)
+            // console.log($('input').val('hello'))
+
+            // // 获取每一个选中元素的HTML
+            // $('div').html(function (index, item) {
+            //     console.log(item);
+            // });
+
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" name="" id="" value="张三">
+    <input type="text" name="" id="" value="李四">
+    <div><span>one</span></div>
+    <div><span>two</span></div>
+    <div><span>three</span></div>
+</body>
+
+</html>

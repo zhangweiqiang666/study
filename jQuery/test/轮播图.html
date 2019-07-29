@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #pic,
+        #pic li,
+        #pic li img,
+        .wrap {
+            margin: 0 auto;
+            width: 1000px;
+            height: 750px;
+        }
+
+        .wrap {
+            position: relative;
+        }
+
+        #pic li {
+            position: absolute;
+        }
+
+        #index {
+            z-index: 999;
+            position: absolute;
+            bottom: 10px;
+            left: 38%;
+        }
+
+        #index li {
+            cursor: pointer;
+            float: left;
+            margin: 0 20px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .wrap span {
+            z-index: 999;/*  */
+            display: none;
+            height: 50px;
+            background-color: azure;
+            position: absolute;
+        }
+
+        .wrap .pre {
+            top: 40%;
+            left: 2px;
+        }
+
+        .wrap .next {
+            top: 40%;
+            right: 2px;
+        }
+
+        .on {
+            background-color: red !important;
+        }
+    </style>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            var index = 0;
+            var time = setInterval(move, 1000);
+            $('.pre').click(function () {
+                index--;
+                if (index == -1) {
+                    index = 4;
+                }
+                $('#index li').eq(index).addClass('on').siblings().removeClass('on');
+                $('#pic li').eq(index).stop().fadeIn(1000).siblings().stop().fadeOut(1000);
+            });
+            $('.next').click(function(){
+                move();
+            })
+
+            function move() {
+                index++;
+                if (index == 5) {
+                    index = 0;
+                }
+                $('#index li').eq(index).addClass('on').siblings().removeClass('on');
+                $('#pic li').eq(index).stop().fadeIn(1000).siblings().stop().fadeOut(1000);
+
+            }
+            // 鼠标悬停 停止动画
+            $('.wrap').hover(function () {
+                $('.wrap span').fadeIn(100);
+                clearInterval(time);
+            }, function () {
+                $('.wrap span').fadeOut(100);
+                time = setInterval(move, 2000);
+            });
+            // 点击索引切换图片
+            $('#index li').click(function () {
+                $(this).addClass('on').siblings().removeClass('on');
+                index = $(this).index();
+                $('#pic li').eq(index).stop().fadeIn(1000).siblings().stop().fadeOut(1000);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrap"  >
+        <ul id="pic">
+            <li style="z-index: 1"><img src="./images/IMG_20190728_174919.jpg" alt=""></li>
+            <li><img src="./images/IMG_20190728_185714.jpg" alt=""></li>
+            <li><img src="./images/IMG_20190728_191811.jpg" alt=""></li>
+            <li><img src="./images/IMG_20190728_191822.jpg" alt=""></li>
+            <li><img src="./images/IMG_20190728_193537.jpg" alt=""></li>
+        </ul>
+        <ul id="index">
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span class="pre">后退</span>
+        <span class="next">前进</span>
+    </div>
+</body>
+
+</html>

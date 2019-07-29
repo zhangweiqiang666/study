@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>样式操作</title>
+    <style>
+        .normal {
+            width: 110px;
+            height: 110px;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            $('button').click(function () {
+                if ($('div').hasClass('red')) {
+                    $('div').removeClass('red');
+                    $('div').addClass('green');
+
+                } else {
+                    $('div').addClass('red');
+                    $('div').removeClass('green');
+
+                }
+            });
+            // 添加类
+            $('div').addClass('red');
+            // 移除类
+            $('div').removeClass('red');
+        })
+    </script>
+</head>
+
+<body>
+    <button>切换</button>
+    <div class="normal "></div>
+</body>
+
+</html>
