@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件代理</title>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+    $(function(){
+        //事件代理
+        $('body').on('click','button',{id:1001},function(event,a,b){
+            console.log(event,a,b)
+        });
+        // 解绑代理
+        // $('body').off('click','button')
+        $('button').trigger('click',[12,33])
+    });
+    </script>
+</head>
+<body>
+    <button>点击</button>
+</body>
+</html>

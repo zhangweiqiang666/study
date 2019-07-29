@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>属性操作</title>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            // 获取属性值
+            console.log($('div').attr('title'));
+            console.log($('div').attr('data-id'));
+            console.log($('input').attr('checked')); //checked
+
+            console.log($('div').prop('title'));
+            console.log($('div').prop('data-id')); //undefined
+            console.log($('input').prop('checked')); //true
+            // 使用attr操作正常的属性 使用prop操作bool属性
+
+            // 设置属性值
+            // console.log($('div').attr('title', '设置之后的值'));
+            // console.log($('div').attr('data-id', '设置之后的id值'));
+            // console.log($('input').attr('checked', false));
+
+            // console.log($('div').prop('title', '设置之后的值'));
+            // console.log($('div').prop('data-id', '设置之后的id值')); //不生效
+            // console.log($('input').prop('checked', false));
+
+            // 删除属性
+            // $('div').removeAttr('title');
+            // $('div').removeAttr('data-id');
+            // $('input').removeAttr('checked');
+
+            // $('div').removeProp('title');
+            // $('div').removeProp('data-id');
+            // $('input').removeProp('checked');
+
+             $('input').removeProp('data-sss');
+
+        });
+    </script>
+</head>
+
+<body>
+    <div title="hello" data-id="1001">hello</div>
+    <input type="checkbox" checked name="" id="" data-sss="4444">
+</body>
+
+</html>

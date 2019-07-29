@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件</title>
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            $('button').bind('click', function (event) {
+                // console.log(1);
+                // console.log(event);
+                if ($(event.target).text() === '新增'){
+                    $('div').text('新增学生信息');
+                }else{
+                    $('div').text('修改学生信息');
+                }
+            });
+            $('button').click(haddle);
+            function haddle(){
+                console.log(111)
+            }
+            $('button').unbind('click',haddle)
+        });
+    </script>
+</head>
+
+<body>
+    <div>标题</div>
+    <button>新增</button>
+    <button>修改</button>
+</body>
+
+</html>
