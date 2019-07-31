@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../bootstrap-3.3.7/js/jquery-3.4.1.min.js"></script>
+    <script src="../bootstrap-3.3.7/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../bootstrap-3.3.7/css/bootstrap.css">
+    <style>
+    .info-div{
+        width: 200px;
+        height: 150px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: none;
+    }
+    </style>
+    <script>
+    $(function(){
+        $('#del-btn').click(function(){
+            $('.info-div').slideDown(1000).delay(1000).fadeOut(1000);
+        });
+        $('#btn-close').click(function(){
+            $('.info-div').css('display','none')
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="well">
+            <button class="btn btn-success">
+                <span class="glyphicon glyphicon-download"></span>下载
+            </button>
+            <!-- alter组件 -->
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <strong>Warning!</strong> Better check yourself, you're not looking too good.
+            </div>
+
+            <!-- 提示框 -->
+            <div class="info-div">
+                <div class="alert alert-danger alert-dismissable">
+                    <button class="close" id="btn-close">&times;</button>
+                    <div>删除成功</div>
+                </div>
+            </div>
+            <button class="btn btn-danger" id="del-btn">删除</button>
+        </div>
+    </div>
+</body>
+
+</html>

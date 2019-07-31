@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义媒体播放器</title>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById('btn');
+            var video = document.getElementsByTagName('video')[0];
+            var toggle = document.getElementById('toggle');
+            btn.onclick = function (event) {
+                var text = event.target.innerText;
+                if (text === '播放') {
+                    video.play();
+                } else if (text === '暂停') {
+                    video.pause();
+                } else if (text === '快进') {
+                    // console.log(video.currentTime);
+                    video.currentTime += 5;
+                } else if (text === '快退') {
+                    // console.log(video.currentTime);
+                    video.currentTime -= 5;
+                } else if (text === '2倍速') {
+                    video.playbackRate = 2;
+                    console.log(video.playbackRate)
+                } else if (text === '0.5倍速') {
+                    video.playbackRate = 0.5;
+                    console.log(video.playbackRate)
+                } else if (text === '音量+') {
+                    video.volume += 0.1;
+                } else if (text === '音量-') {
+                    video.volume -= 0.1;
+                    console.log(video.volume)
+                }
+            }
+            toggle.onclick = function () {
+                console.log(video.paused);
+                if (video.paused === true) {
+                    video.play();
+                    event.target.innerText = '暂停1';
+                } else {
+                    video.pause();
+                    event.target.innerText = '播放1';
+                }
+            }
+
+            document.onkeydown = function (event) {
+                switch (event.keyCode) {
+                    case 37:
+                        video.currentTime -= 5;
+                        break;
+                    case 38:
+                        video.volume += 0.1;
+                        break;
+                    case 39:
+                        video.currentTime += 5;
+                        break;
+                    case 40:
+                        video.volume -= 0.1;
+                        break;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="btn">
+        <video src="../media/a.mp4" width="510px"></video> 
+        <br>
+        <button>播放</button>
+        <button>暂停</button>
+        <button id="toggle">切换</button>
+        <button>快进</button>
+        <button>快退</button>
+        <button>2倍速</button>
+        <button>0.5倍速</button>
+        <button>音量-</button>
+        <button>音量+</button>
+    </div>
+   
+    
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="../bootstrap-3.3.7/js/jquery-3.4.1.min.js"></script>
+    <script src="../bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap-3.3.7/css/bootstrap.css">
+    <script>
+        
+        $(function () {
+            $('#add').click(function () {
+                // 清空表单数据 显示模态框
+                $('#mymodal').modal('show');
+                $('[type = text],[type = password]').val('');
+                $('[name = gender]').prop('checked', false);
+            });
+            $('#update').click(function () {
+                var obj = {
+                    name: 'username',
+                    password: 'userpwd',
+                    gender: '男'
+                };
+                $('[type = text]').val(obj.name);
+                $('[type = password]').val(obj.password);
+                $('[name = gender][value='+obj.gender+']').prop('checked', true);
+                $('#mymodal').modal('show');
+
+            })
+            $('#to-save').click(function () {
+                // 获取数据 封装成对象 传给后台
+                var username = $('[type = text]').val();
+                var userpwd = $('[type = password]').val();
+                var gender = $('[name = gender]:checked').val();
+                var obj = {
+                    name: username,
+                    password: userpwd,
+                    gender: gender
+                }
+                console.log(obj);
+                if (username && userpwd && gender) {
+                    $('#mymodal').modal('hide');
+                } else {
+                    alert('请输入完整的信息')
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="modal" id="mymodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="btn btn-default close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <form action="" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">用户名：</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">密码：</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">性别：</label>
+                            <div class="col-sm-10">
+                                <div class="radio-inline">
+                                    <label for="">
+                                        <input type="radio" name="gender" value="男">男
+                                    </label>
+                                </div>
+                                <div class="radio-inline">
+                                    <label for="">
+                                        <input type="radio" name="gender" value="女">女
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal">取消</button>
+                    <button class="btn btn-primary" id="to-save">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <button class="btn btn-danger" id="add">新增</button>
+        <button class="btn btn-primary" id="update">修改</button>
+    </div>
+</body>
+
+</html>
