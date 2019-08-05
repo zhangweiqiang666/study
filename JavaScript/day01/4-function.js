@@ -1,7 +1,7 @@
 //申明函数
-function tset(){
+function test(){
 	console.log(123);
 }
-	console.log(tset);
-	console.log(typeof tset);
+	console.log(test);
+	console.log(typeof test);
 test();

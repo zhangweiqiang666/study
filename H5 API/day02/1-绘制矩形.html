@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制矩形</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById('canvas');
+            //获取2d上下文对象
+            var context = canvas.getContext('2d');
+            // 设置填充颜色
+            context.fillStyle = 'pink';
+            // 绘制矩形 起始坐标 x y 宽 高
+            context.fillRect(0, 0, 200, 200);
+            context.clearRect(25, 25, 150, 150);
+            // 绘制边框矩形 起始坐标 x y 宽 高
+            context.strokeStyle = 'coral';
+            context.lineWidth = 5;
+            context.strokeRect(200, 200, 100, 100);
+            context.strokeStyle = 'blue';
+            context.strokeRect(55, 55, 200, 200);
+            context.clearRect(185, 240, 30, 30);
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+
+</html>

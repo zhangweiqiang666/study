@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制图像</title>
+    <script>
+    window.onload = function(){
+        /** @type {HTMLCanvasElement}*/
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        // 创建图像
+        // 创建图像节点
+        var image = new Image();
+        image.src = '../../jQuery/test/images/IMG_20190728_174919.jpg'
+        // 监听图像加载完成
+        image.onload = function(){ 
+            // 绘制图像 参数 图像DOM 开始位置 x y,绘制的宽高
+            context.drawImage(image,0,0,300,200);
+        }
+        //放大镜
+        // image 鼠标滑过 获取鼠标所在的点 获取到左上角点 方形区域 放大
+
+
+        // 绘制文本
+        context.font = '50px sans-serif'
+        // 参数 文本 开始绘制的位置
+        context.strokeText('hello',300,300);
+    }
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400" style="border: 1px solid red"></canvas>
+</body>
+</html>

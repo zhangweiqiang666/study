@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>放大镜</title>
+</head>
+<style>
+    div {
+        position: relative;
+    }
+
+    canvas:last-child {
+        cursor: crosshair;
+        background-color: rgba(239, 241, 91, 0.322);
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+</style>
+<script>
+    window.onload = function () {
+        // /** @type {HTMLCanvasElement} */
+        var canvas = document.getElementsByTagName('canvas'),
+            context = canvas[0].getContext('2d'),
+            bigContext = canvas[1].getContext('2d'),
+            bdContext = canvas[2].getContext('2d');
+        // 背景图片
+        var img = new Image();
+        img.src = '../../jQuery/test/images/IMG_20190728_174919.jpg';
+        img.onload = function () {
+            context.drawImage(img, 0, 0, 600, 400);
+        }
+        canvas[0].onmousemove = function () {
+            bigContext.clearRect(0, 0, canvas[1].offsetWidth, canvas[1].offsetHeight);
+            var x = event.pageX - canvas[2].offsetWidth / 2;
+            var y = event.pageY - canvas[2].offsetHeight / 2;
+            canvas[2].style.left = x + 'px';
+            canvas[2].style.top = y + 'px';
+            // 放大图片 
+            if (canvas[2].offsetTop < 0) {
+                canvas[2].style.top = 0;
+            }
+            if (canvas[2].offsetLeft < 0) {
+                canvas[2].style.left = 0;
+            }
+            if (canvas[2].offsetLeft > canvas[0].offsetWidth - canvas[2].offsetWidth) {
+                canvas[2].style.left = canvas[0].offsetWidth - canvas[2].offsetWidth + 'px';
+            }
+            if (canvas[2].offsetTop > canvas[0].offsetHeight - canvas[2].offsetHeight) {
+                canvas[2].style.top = canvas[0].offsetHeight - canvas[2].offsetHeight + 'px';
+            }
+            bigContext.drawImage(canvas[0], x, y, 100, 100, 0, 0, 300, 300);
+        }
+    }
+</script>
+
+<body>
+    <div>
+        <!-- 原图 -->
+        <canvas width="600" height="400"></canvas>
+        <!-- 放大区域 -->
+        <canvas width="300" height="300"></canvas>
+        <!-- 半透明的波点区域 -->
+        <canvas width="150" height="150"></canvas>
+    </div>
+</body>
+
+</html>

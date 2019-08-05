@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>放大镜</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .image {
+            position: relative;
+            margin: 0 auto;
+            width: 800px;
+            height: 600px;
+            cursor: crosshair;
+
+        }
+
+        .div {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid rgba(134, 128, 128, 0.767);
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .div1 {
+
+            background: url("../../jQuery/test/images/IMG_20190728_174919.jpg") no-repeat;
+            background-size: 800px 600px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementsByTagName('button');
+            var div = document.getElementsByTagName('div');
+            var count = 1.4;
+            btn[0].onclick = function () {
+                if (count > 1) {
+                    count -= 0.2;
+                }
+                console.log(count)
+            }
+            btn[1].onclick = function () {
+                count += 0.2;
+                console.log(count)
+
+            }
+            div[0].onmousemove = function (event) {
+                // console.log(div[0].offsetTop,div[0].offsetLeft)
+                div[1].style.top = event.pageY - div[1].offsetHeight / 2 - div[0].offsetTop + 'px';
+                div[1].style.left = event.pageX - div[1].offsetWidth / 2 - div[0].offsetLeft + 'px';
+                if (div[1].offsetTop < 0) {
+                    console.log(div[1].offsetLeft,div[1].offsetTop)
+                    div[1].style.top = 0;
+                }
+                if (div[1].offsetLeft < 0) {
+                    div[1].style.left = 0;
+                    console.log(div[1].offsetLeft,div[1].offsetTop)
+                    
+
+                }
+                if (div[1].offsetLeft > div[0].offsetWidth - div[1].offsetWidth) {
+                    div[1].style.left = div[0].offsetWidth - div[1].offsetWidth + 'px';
+                    console.log(div[1].offsetLeft,div[1].offsetTop)
+                    
+
+                }
+                if (div[1].offsetTop > div[0].offsetHeight - div[1].offsetHeight) {
+                    div[1].style.top = div[0].offsetHeight - div[1].offsetHeight + 'px';
+                    console.log(div[1].offsetLeft,div[1].offsetTop)
+                    
+                }
+                div[2].style.backgroundPosition = '-' + div[1].style.left + ' -' + div[1].style.top;
+                div[2].style.transform = 'scale(' + count + ')';
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="image div1">
+        <div class="div">
+            <div class="div1 div"></div>
+        </div>
+    </div>
+    <div></div>
+    <button>倍数-</button>
+    <button>倍数+</button>
+</body>
+
+</html>

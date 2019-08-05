@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=0 , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .parent {
+            height: 200px;
+            width: 200px;
+            border: 1px solid red;
+        }
+
+        .child {
+            display: block;
+            height: 100px;
+            width: 100px;
+            border: 1px solid saddlebrown;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // 在开始的拖放的时候 保存拖放的元素 放置的时候 获取到拖放的元素 放置到目标元素内部
+            var parent = document.getElementsByClassName('parent')[0];
+            var child = document.getElementsByClassName('child')[0];
+            // 拖放开始事件 记录拖放的元素
+            child.ondragstart = function (event) {
+                //拖放的数据传输对象
+                var  dt= event.dataTransfer;
+                // 添加数据到数传输对象里
+                dt.setData('id',this.id);
+                console.log('ondragstart');
+            }
+            // 拖放中
+            child.ondrag = function () {
+                console.log('ondrag');
+            }
+            // 拖放结束
+            child.ondragend = function () {
+                console.log('ondragend')
+            }
+            // 进入目标事件
+            parent.ondragenter = function () {
+                console.log('ondragenter')
+            }
+            // 在目标元素内移动
+            parent.ondragover = function () {
+                event.preventDefault();
+                console.log('ondragover')
+            }
+            // 将拖放元素放置到目标院元素内的事件
+            parent.ondrop = function () {
+                var dt  = event.dataTransfer;
+                var id = dt.getData('id');
+                var dom = document.getElementById(id);
+                this.appendChild(dom);
+                console.log('ondrop')
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="parent"></div>
+    <div draggable="true" class="child" id="one"></div>
+</body>
+
+</html>

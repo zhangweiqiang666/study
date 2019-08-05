@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>直线和曲线</title>
+    <script>
+        window.onload = function () {
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            // 设置路径
+            // context.beginPath();
+            // // 直线的起点
+            // context.moveTo(0, 0);
+            // // 直线的终点
+            // context.lineTo(100, 100);
+            // context.lineTo(200, 250);
+            // context.lineTo(300, 200);
+            // // 关闭路径
+            // // context.closePath();
+            // context.strokeStyle = 'coral';
+            context.lineWidth = 4;
+            // // 绘制
+            // // context.fill();
+            // context.stroke();
+            // 绘制曲线
+            context.beginPath();
+            context.moveTo(0, 0);
+            context.bezierCurveTo(500, 60, 60, 300, 600, 400);
+            context.quadraticCurveTo(100, 400, 0, 0);
+            // context.closePath();
+            context.fill();
+
+            context.beginPath();
+            context.arc(100, 100, 2, 0, Math.PI * 2);
+            context.closePath();
+            context.strokeStyle = 'skyblue';
+            context.stroke();
+
+
+
+            context.beginPath();
+            context.arc(300, 300, 100, 0, Math.PI * 2);
+            context.closePath();
+            // 创建线性渐变对象
+            var g = context.createLinearGradient(200, 200, 400, 400);
+            // 添加渐变的颜色 参数 偏移量0-1 颜色值
+            g.addColorStop(0.2, 'rgb(231, 207, 142)');
+            g.addColorStop(0.4, 'rgb(158, 219, 89)');
+            g.addColorStop(0.6, 'rgb(89, 219, 158)');
+            g.addColorStop(0.8, 'rgb(62, 101, 145)');
+            context.fillStyle = g;
+            context.fill();
+
+            context.beginPath();
+            context.arc(500, 100, 100, 0, Math.PI * 2);
+            context.closePath();
+            // 创建线性渐变对象
+            var g = context.createRadialGradient(500, 100, 2, 400, 50, 200);
+            // 添加渐变的颜色 参数 偏移量0-1 颜色值
+            g.addColorStop(0, 'rgb(231, 207, 142)');
+            g.addColorStop(0.3, 'rgb(158, 219, 89)');
+            g.addColorStop(0.6, 'rgb(89, 219, 158)');
+            g.addColorStop(0.9, 'rgb(62, 101, 145)');
+            context.fillStyle = g;
+            context.fill();
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="400" style="border: 1px solid rgb(62, 101, 145)"></canvas>
+</body>
+
+</html>

@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 {
     "terminal.integrated.fontFamily": "monospace",
     "editor.fontSize": 24,
-    "files.autoSave": "afterDelay"
+    "files.autoSave": "afterDelay",
+    "cSpell.words": [
+        "childs"
+    ]
 }
-=======
- {
-    "git.enabled": false,
-    "git.autofetch": false
-}
->>>>>>> 7317a2aefe6a16c7292ea873b8ac0ffe2b616744

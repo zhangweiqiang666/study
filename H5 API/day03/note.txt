@@ -1,0 +1,18 @@
+拖放API
+    拖放元素 div.child
+        是一个可拖放的元素 img和a默认就是可拖放的元素
+        div 设置成可拖放的元素 draggable = "true";
+        拖放事件
+          dragstart 拖放开始
+          drag 正在拖放中
+          dragend 拖放结束
+        目标元素 div.parent
+            放置拖放元素的元素
+                在dragover事件内阻止默认行为
+            放置事件
+                dragenter
+                    进入目标元素事件
+                    dragover
+                    在目标元素内部活动事件
+                    drop 放置事件
+                dragstart-->drag-->dragenter-->dragover-->drop-->dragend 
