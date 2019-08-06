@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>indexedDB</title>
+    <script src="./indexedDB.js"></script>
+    <script>
+        window.onload = function () {
+
+            var btn = document.getElementsByTagName('button');
+            // 创建数据库
+            btn[0].onclick = function () {
+                var dbParams = {
+                    dbName: 'Users',
+                    dbVersion: '1.0',
+                    dbStoreName: 'Student'
+                }
+                dbObj.init(dbParams);
+                console.log(dbObj)
+            }
+            // 添加数据
+            btn[1].onclick = function () {
+                dbObj.put({
+                    name: 'zhangsan',
+                    age: 12
+                })
+            }
+            // 修改数据
+            btn[2].onclick = function () {
+                dbObj.put({
+                    name: 'zhangsan221',
+                    age: 15
+                },2)
+            }
+            // 查询数据
+            btn[3].onclick = function () {
+                dbObj.select()
+                dbObj.select(2)
+            }
+            // 删除数据
+            btn[4].onclick = function () {
+                dbObj.delete(1)
+            }
+            // 删库跑路
+            btn[5].onclick = function () {
+                dbObj.clear()
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button>创建对象仓库</button>
+    <button>添加数据</button>
+    <button>修改数据</button>
+    <button>查询数据</button>
+    <button>删除数据</button>
+    <button>删除数据仓库</button>
+</body>
+
+</html>

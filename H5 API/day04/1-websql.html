@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebSql数据库</title>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementsByTagName('button');
+            //创建数据库
+            btn[0].onclick = function () {
+                var db = openDatabase('user', '1.0', 'first db', 2 * 1024 * 1024);
+                console.log(db);
+            }
+            // 创建表
+            btn[1].onclick = function () {
+                var sql = 'create table student(id integer,name text, age integer,tel text)';
+                myExe(sql, [],
+                function (ts, res) {
+                console.log('创建成功', res);
+                },
+                function (ts, error) {
+                console.log('创建失败', error);
+                });
+
+                // var db = openDatabase('user', '1.0', 'first db', 2 * 1024 * 1024);
+                // // 获取事务对象 通过事务对象去执行生sql语句
+                // db.transaction(function (ts) {
+                //     // ts就是事务对象
+                //     var sql = 'create table student(id integer,name text, age integer,tel text)'
+                //     ts.executeSql(sql, [],
+                //         function (ts, res) {
+                //             console.log('创建成功', res);
+                //         },
+                //         function (ts, error) {
+                //             console.log('创建失败', error);
+                //         });
+                // });
+            }
+            // 添加数据
+            btn[2].onclick = function () {
+                var sql = 'insert into student values(1001,"zhangsan",12,"123456789")';
+                 myExe(sql, [], function (ts,res) {
+                 console.log('添加成功', res)
+                 }, function (ts,error) {
+                 console.log('添加失败', error)
+                 })
+                // var db = openDatabase('user', '1.0', 'first db', 2 * 1024 * 1024);
+                // db.transaction(function (ts) {
+                //     var sql = 'insert into student values(1001,"zhangsan",12,"123456789")';
+                //     ts.executeSql(sql, [],
+                //         function (ts, res) {
+                //             console.log('添加成功', res);
+                //         },
+                //         function (ts, error) {
+                //             console.log('添加失败', error);
+                //         });
+                // })
+            }
+            // 修改数据
+            btn[3].onclick = function () {
+                var sql = 'update student set name = ? where rowid = 2';
+                myExe(sql, ['lisi1223'], function (ts,res) {
+                    console.log('修改成功', res)
+                }, function (ts,error) {
+                    console.log('修改失败', error)
+                })
+                // var db = openDatabase('user', '1.0', 'first db', 2 * 1024 * 1024);
+                // db.transaction(function (ts) {
+                //     var sql = 'update student set name = ? where rowid = 2';
+                //     // 使用第二个参数 数组 来代替sql语句中的占位符 一个个去替换
+                //     ts.executeSql(sql, ['lisi1223'], function (ts, res) {
+                //         console.log('修改成功', res);
+                //     }, function (ts, error) {
+                //         console.log('修改失败', error);
+                //     });
+                // });
+            }
+            //查询数据
+            btn[4].onclick = function () {
+
+                var sql = 'select * from student';
+                myExe(sql, [], function (ts,res) {
+                    console.log('查询成功', res)
+                }, function (ts,error) {
+                    console.log('查询失败', error)
+                })
+            }
+            // 删除
+            btn[5].onclick = function () {
+                var sql = 'delete from student'
+                myExe(sql, [],
+                    function (ts,res) {
+                        console.log('删除成功', res)
+                    },
+                    function (ts,error) {
+                        console.log('删除失败', error)
+                    })
+            }
+            // 删除表
+            
+            btn[6].onclick = function () {
+                var sql = 'drop table student';
+                myExe(sql, [],
+                    function (ts,res) {
+                        console.log('删除成功', res)
+                    },
+                    function (ts,error) {
+                        console.log('删除失败', error)
+                    })
+            }
+            // 封装WebSql 
+            function myExe(sql, arr, fun1, fun2) {
+                var db = openDatabase('user', '1.0', 'first db', 2 * 1024 * 1024);
+                db.transaction(function (ts) {
+                    ts.executeSql(sql, arr, fun1, fun2)
+                })
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button>创建数据库</button>
+    <button>创建表</button>
+    <button>添加数据</button>
+    <button>修改数据</button>
+    <button>查询数据</button>
+    <button>删除数据</button>
+    <button>删除表</button>
+</body>
+
+</html>

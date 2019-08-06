@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sessionStorage</title>
+    <script>
+    console.log(sessionStorage);
+    console.log(localStorage);
+    sessionStorage.setItem('name','zhangsan');
+    sessionStorage.setItem('age','11');
+    sessionStorage.setItem('obj',JSON.stringify({name:'zhangsan',age:12}))
+
+   var age = sessionStorage.getItem('age');
+    console.log(age);
+    var obj = sessionStorage.getItem('obj');
+    console.log(JSON.parse(obj))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
