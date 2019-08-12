@@ -1,0 +1,289 @@
+       <!-- 资讯模态框 -->
+       <div class="modal" id="info-modal">
+           <div class="modal-dialog">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <button class="btn btn-default close" data-dismiss="modal">&times;</button>
+                       <h4 class="modal-title" id="info-title">Modal title</h4>
+                   </div>
+
+                   <div class="modal-body">
+                       <form action="">
+                           <div class="form-group">
+                               <label for="infoName">标题</label>
+                               <input type="text" name="infoName" class="form-control">
+                           </div>
+                           <div class="form-group">
+                               <label for="infoParent">所属栏目</label>
+                               <select name="infoParent" class="form-control">
+                               </select>
+                           </div>
+                           <div class="form-group">
+                               <label for="list-style">列表样式</label>
+                               <div>
+                                   <div class="radio-inline">
+                                       <label for="style-one"><input type="radio" name="list-style" id="style-one"
+                                               value="style-one">
+                                           <img src="./images/style-one.jpg" alt="" width="240px"></label>
+                                   </div>
+
+                                   <div class="radio-inline">
+                                       <label for="style-two"><input type="radio" name="list-style" id="style-two"
+                                               value="style-two">
+                                           <img src="./images/style-two.jpg" alt="" width="240px"></label>
+
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="form-group">
+                               <label for="infoComment">正文</label>
+                               <textarea rows="6" name="infoComment" class="form-control"></textarea>
+                           </div>
+                       </form>
+
+                   </div>
+                   <div class="modal-footer">
+                       <span style="margin-right: 10px; color: red"></span>
+                       <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                       <button class="btn btn-success" id="info-save">保存</button>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+
+
+  <div id="context">
+      <div class="header">
+          <div class="row">
+              <div class="form-group col-sm-3">
+                  <select id="category-list" class="form-control">
+                      <option value="">请选择</option>
+                  </select>
+              </div>
+              <div class="col-sm-5">
+                  <button id="add" class="btn btn-success">新增</button>
+                  <button id="batch-delete" class="btn btn-danger">批量删除</button>
+              </div>
+          </div>
+      </div>
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th><input id="all-check" type="checkbox" />全选</th>
+                  <th>文章标题</th>
+                  <th>所属栏目</th>
+                  <th>排列方式</th>
+                  <th>作者</th>
+                  <th>发布时间</th>
+                  <th>阅读次数</th>
+                  <th>操作</th>
+              </tr>
+          </thead>
+          <tbody id="info-msg">
+          </tbody>
+      </table>
+      <script>
+          var url = 'http://134.175.154.93:8099/'; //基础url
+          var option; //修改新增判断
+          var currentId; //保存要修改的id
+          var categoryId; //栏目ID
+          var info;
+          var time = getFormatDate();
+          console.log(time)
+          loadOption();
+          //监听栏目改变时加载该栏目下的文章
+          $('#category-list').change(function () {
+              categoryId = $(this).val();
+              findArticle(categoryId);
+          });
+          //   增加按钮 打开模态框
+          $('#add').click(function () {
+              option = '新增';
+              // 清空表单数据 显示模态框
+              $('#info-modal input[name=infoName]').val('');
+              $('#info-modal [name = list-style]').prop('checked', false);
+              $('#info-modal textarea').val('');
+               newOption();
+          });
+          // 修改 删除代理
+          $('#info-msg').on('click', '.update', function (e) {
+              option = '修改';
+              currentId = $(this).data("id");
+              var $td = $(this).parents('tr').find('td');
+              $('#info-modal input[name=infoName]').val($td.eq(1).text());
+              $('#info-modal [name = list-style][value=' + $td.eq(3).text() + ']').prop('checked', true);
+              //   console.log(info)
+              var res = info.filter(function (index, item) {
+                  return item.id == currentId;
+              })
+              $('#info-modal textarea').val(res[0].content);
+              newOption();
+            
+          });
+          // 删除
+          $('#info-msg').on('click', '.delete', function (e) {
+              var id = $(this).data("id")
+              $.get(url + 'manager/article/deleteArticleById?id=' + id,
+                  function (res) {
+                      if (res.status == 200) {
+                          findArticle(categoryId);
+                          alert('删除成功');
+                      } else {
+                          alert('删除失败');
+                          console.log(res.message);
+                      }
+                  },
+              );
+          });
+          // 批量删除
+          $('#batch-delete').click(function () {
+              var ids = $('#info-msg :checkbox:checked').map(function (index,
+                  item) {
+                  return $(item).data('id');
+              }).get();
+              var obj = {
+                  ids: ids.toString()
+              }
+              $.post(url + 'manager/article/batchDeleteArticle', obj,
+                  function (res) {
+                      if (res.status == 200) {
+                          findArticle(categoryId);
+                          alert('删除成功');
+                      } else {
+                          alert('删除失败');
+                          console.log(res.message);
+                      }
+                  },
+              );
+                $('#all-check').prop('checked', false);
+              $('#info-msg :checkbox').prop('checked', false);
+          })
+          // 保存
+          $('#info-save').click(function () {
+              // 获取数据 封装成对象 传给后台
+              var infoName = $('#info-modal input[name=infoName]').val();
+              var listStyle = $('#info-modal [name = list-style]:checked').val();
+              var infoContent = $('#info-modal textarea').val();
+              var infoId = $('#info-modal select').val();
+              if (infoName && listStyle && infoContent) {
+                  // 保存
+                  var obj = {
+                      title: infoName,
+                      liststyle: listStyle,
+                      content: infoContent,
+                      categoryId: infoId
+                  };
+                  if (option == "修改") {
+                      obj.id = currentId;
+                      obj.publishtime = time;
+                  }
+                  $.post(url + 'manager/article/saveOrUpdateArticle', obj,
+                      function (res) {
+                          if (res.status == 200) {
+                              findArticle(categoryId);
+                              alert('保存成功');
+                          } else {
+                              alert('保存失败');
+                              console.log(res.message);
+                          }
+                      },
+                  )
+                   $('#info-modal').modal('hide');
+              }else{
+                 $('#info-modal .modal-footer span').text('*请输入完整的信息')
+              }
+          });
+          //加载文章
+          function findArticle(categoryId) {
+              $.get(url + "manager/article/findArticle", {
+                      page: 0,
+                      pageSize: 100,
+                      categoryId: categoryId
+                  },
+                  function (res) {
+                      //   console.log(res);
+                      var str = '';
+                      // console.log(JSON.parse(res).data);
+                      var list = $(res.data.list);
+                      info = list
+                      list.each(function (index, item) {
+                          str += `
+                             <tr>
+                                 <td><input type="checkbox" data-id="` + item.id + `" /> </td>
+                                 <td>` + item.title + `</td>
+                                 <td>` + item.category.name + `</td>
+                                 <td>` + item.liststyle + `</td>
+                                 <td>` + (item.author?item.author:'-') + `</td>
+                                 <td>` + item.publishtime + `</td>
+                                 <td>` + item.readtimes + `</td>
+
+                                 <td>
+                                     <i class="glyphicon glyphicon-pencil update" data-id="` + item.id + `"></i>
+                                     <i class="glyphicon glyphicon-trash delete" data-id="` + item.id + `"></i>
+                                 </td>
+                             </tr>
+                             `;
+                      });
+                      $('#info-msg').html(str);
+                  }
+              );
+          }
+          // 加载栏目选项
+          function loadOption() {
+              $('#category-list option').remove();
+              $.get(url + 'manager/category/findAllCategory', function (res) {
+                  var res = res.data;
+                  res.forEach(function (item) {
+                      var $option = $('<option value="' + item.id + '">' + item.name +
+                          '</option>')
+                      $('#category-list').append($option);
+                  });
+                  categoryId = $('#category-list').val();
+                  //   categoryId = res[0].id; 
+                  findArticle(categoryId);
+              });
+          }
+          //  在模态框加载栏目选项 在哪个栏目就选中哪个栏目 打开模态框
+          function newOption() {
+              $('#category-modal select option:not(:first)').remove();
+              $.get(url + 'manager/category/findAllCategory', function (res) {
+                  var parents = res.data;
+                  parents.forEach(function (item) {
+                      var $option = $('<option value="' + item.id + '">' + item.name +
+                          '</option>')
+                      $('#info-modal select').append($option);
+                  });
+                  $('#info-title').text(option);
+              });
+              $('#info-modal select').val(categoryId);
+               $('#info-modal .modal-footer span').text('')
+             $('#info-modal').modal('show');
+          }
+          //   全选
+          $('#all-check').on('click', function () {
+              if ($('#all-check').prop('checked') == true) {
+                  $('#info-msg :checkbox').prop('checked', true)
+              } else {
+                  $('#info-msg :checkbox').prop('checked', false)
+              }
+
+          })
+          //   时间
+          function getFormatDate() {
+              var nowDate = new Date();
+              var year = nowDate.getFullYear();
+              var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
+              var
+                  date = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
+              var hour = nowDate.getHours() < 10 ?
+                  "0" + nowDate.getHours() : nowDate.getHours();
+              var minute = nowDate.getMinutes() < 10 ? "0" +
+                  nowDate.getMinutes() : nowDate.getMinutes();
+              var second = nowDate.getSeconds() < 10 ? "0" +
+                  nowDate.getSeconds() : nowDate.getSeconds();
+              return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+          }
+          
+      </script>
+  </div>

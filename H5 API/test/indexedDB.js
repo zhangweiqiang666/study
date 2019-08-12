@@ -16,7 +16,7 @@
              console.log('数据库打开失败,错误码：', event)
          }
          // 打开数据库成功
-         request.onsuccess = function (event) {
+         request.onsuccess = function () {
              // 获取数据对象
              dbObj.db = this.result;
              console.log('连接数据库成功');

@@ -49,25 +49,24 @@ window.onload = function () {
         name: 'Django课程',
         cate_path: '1.11.12'
     }];
-   
+
     // btn[0].onclick = function () {
-        var dbParams = {
-            dbName: 'Category',
-            dbVersion: '1.0',
-            dbStoreName: 'category'
-        }
-        dbObj.init(dbParams);
-        console.log(dbObj);
+    var dbParams = {
+        dbName: 'Category',
+        dbVersion: '1.0',
+        dbStoreName: 'category'
+    }
+    dbObj.init(dbParams);
+    console.log(dbObj);
     // }
-     btn[0].onclick = function () {
-         arr.forEach(function (item) {
+    btn[0].onclick = function () {
+        arr.forEach(function (item) {
             dbObj.put(item);
         })
-     }
+    }
 
     arr = myTree(arr);
     console.log(arr);
-
 
     //数据封装
     function myTree(arr) {

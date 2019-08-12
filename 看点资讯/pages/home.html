@@ -1,0 +1,157 @@
+  <div id="context">
+      <div class="header">
+
+      </div>
+      <div class="container-fluid bg-user">
+          <div class="row-fluid">
+              <div id="count" class="col-lg-5 col-md-12" style=" height:400px"></div>
+              <div id="weather" class="col-lg-7 col-md-12" style="height:400px"></div>
+          </div>
+
+          <div id="city"></div>
+
+
+      </div>
+  </div>
+  <script>
+      // 基于准备好的dom，初始化echarts实例
+      var city;
+      var count = echarts.init($('#count').get(0));
+      // 指定图表的配置项和数据
+      count.setOption({
+          title: {
+              text: '数据统计'
+          },
+          tooltip: {},
+          legend: {
+              data: ['数据']
+          },
+          xAxis: {
+              data: ['栏目', '文章', '用户']
+          },
+          yAxis: {},
+          series: [{
+              itemStyle: { //柱样式
+                  normal: {
+                      barBorderRadius: [5, 5, 0, 0],
+                      color: function (params) {
+                          var colorList = ['#65d186', '#f67287', '#f29e3c']; //每根柱子的颜色
+                          return colorList[params.dataIndex];
+                      }
+                  }
+              },
+
+              type: 'bar',
+              data: [],
+              barWidth: 50, //柱子宽度
+          }]
+      });
+      $.get('http://134.175.154.93:8099/manager/statistics/getCount', function (res) {
+          count.setOption({
+              series: [{
+                  name: '数据',
+                  type: 'bar',
+                  data: [res.data.category, res.data.article, res.data.user],
+
+              }]
+          })
+
+
+      })
+  
+// 初始化天气折线图
+      var weather = echarts.init($('#weather').get(0))
+      option = {
+          title: {
+              text: '未来一周气温',
+              subtext: ''
+          },
+          tooltip: {
+              trigger: 'axis'
+          },
+          legend: {
+              data: ['最高气温', '最低气温']
+          },
+          xAxis: {
+              type: 'category',
+              boundaryGap: false,
+              data: []
+          },
+          yAxis: {
+              scale:true,
+              type: 'value',
+              axisLabel: {
+                  formatter: '{value} °C'
+              }
+          },
+          series: [{
+                  name: '最高气温',
+                  type: 'line',
+                  data: [],
+                  markPoint: {
+                      data: [{
+                              type: 'max',
+                              name: '最大值'
+                          }
+
+                      ]
+                  },
+                  markLine: {
+                      data: [{
+                          type: 'average',
+                          name: '平均值'
+                      }]
+                  }
+              },
+              {
+                  name: '最低气温',
+                  type: 'line',
+                  data: [],
+                  markPoint: {
+                      data: [{
+                          type: 'min',
+                          name: '最小值'
+                      }]
+                  },
+                  markLine: {
+                      data: [{
+                              type: 'average',
+                              name: '平均值'
+                          },
+
+                      ]
+                  }
+              }
+          ]
+      };
+      weather.setOption(option)
+
+// 获取天气信息
+      $.get("https://www.tianqiapi.com/api/?version=v1", {
+              city: city?city:''
+          },
+          function (res) {
+             option.title.subtext ='当前城市：' +res.city
+              option.xAxis.data = [res.data[0].day, res.data[1].day, res.data[2].day, res.data[3].day, res.data[4]
+                  .day, res.data[5].day, res.data[6].day
+              ]
+              option.series[0].data = [parseInt(res.data[0].tem1), parseInt(res.data[1].tem1), parseInt(res.data[2]
+                  .tem1), parseInt(res.data[3].tem1), parseInt(res.data[4].tem1), parseInt(res.data[5]
+                  .tem1), parseInt(res.data[6].tem1)]
+              option.series[1].data = [parseInt(res.data[0].tem2), parseInt(res.data[1].tem2),
+                  parseInt(res.data[2]
+                      .tem2), parseInt(res.data[3].tem2), parseInt(res.data[4].tem2), parseInt(res.data[5]
+                      .tem2), parseInt(res.data[6].tem2)
+              ]
+
+              weather.setOption(option)
+          },
+      );
+
+
+
+      $(window).resize(function () {
+          count.resize();
+          weather.resize();
+      });
+  </script>

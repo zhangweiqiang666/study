@@ -1,0 +1,28 @@
+NodeJS环境中支持绝大部分ES6的功能
+ES6新特性
+    语法方面
+        let  var
+        let a = 1;
+        const 常量命名
+        const schoolName
+        ...
+        (形参)=>{} 箭头函数
+        (a,b)=>{return a+b}
+        (a,b)=>{a+b}
+        a=>a
+    功能方面
+        let obj = {
+            name:'zhangsan'
+            age:12
+        }
+        //复制对象
+        1.json
+            JSON.parse(JSON.stringify(obj))
+        2.遍历一个对象，然后将属性和属性值放置到一个新对象里
+        let obj2 = {}
+        for( var key in obj){
+            obj2[key] = obj[key]
+        }
+        3.ES6
+        let obj2 ={}
+        Object.assign(obj2,obj)

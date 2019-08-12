@@ -1,0 +1,210 @@
+   <!--模态框  -->
+        <div class="modal" id="category-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="btn btn-default close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="form-group">
+                                <label for="categoryName">栏目名称</label>
+                                <input type="text" name="categoryName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="categoryParent">父栏目</label>
+                                <select name="categoryParent" class="form-control">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoryComment">描述</label>
+                                <textarea rows="4" name="categoryComment" class="form-control"></textarea>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <span style="margin-right: 10px; color: red"></span>
+                        <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                        <button class="btn btn-success" data-dismiss="modal" id="to-save">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+   <div id="context">
+       <div class="header">
+           <button id="add" class="btn btn-success">新增</button>
+           <button id="batch-delete" class="btn btn-danger">批量删除</button>
+       </div>
+       <table class="table table-striped">
+           <thead>
+               <tr>
+                   <th><input id="all-check" type="checkbox" />全选</th>
+                   <th>名称</th>
+                   <th>父栏目</th>
+                   <th>描述</th>
+                   <th>操作</th>
+               </tr>
+           </thead>
+           <tbody id="category-msg">
+           </tbody>
+       </table>
+       <script>
+           var url = 'http://134.175.154.93:8099/'; //基础url
+           var option; //修改新增判断
+           var currentId; //保存要修改的id
+           findAllCategory()
+           // 显示所有 
+           function findAllCategory() {
+               $.get(url + "manager/category/findAllCategory",
+                   function (res) {
+                       console.log(res);
+                       var str = '';
+                       // console.log(JSON.parse(res).data);
+                       var data = $(res.data);
+                       var parent;
+                       data.each(function (index, item) {
+                       
+                           str += `
+                            <tr>
+                                <td><input type="checkbox" data-id="` + item.id + `"/> </td>
+                                <td>` + item.name + `</td>
+                                <td data-id="` + (item.parent?item.parent.id:'') + `">` +
+                                    (item.parent?item.parent.name:'-') + `</td>
+                                <td>` + item.comment + `</td>
+                                <td> 
+                                <i class="glyphicon glyphicon-pencil update" data-id="` + item.id + `"></i>
+                                <i class="glyphicon glyphicon-trash delete" data-id="` + item.id + `"></i>
+                                </td>
+                            </tr>
+                `;
+                       });
+                       $('#category-msg').html(str);
+                   }
+               );
+           }
+           // 修改 删除代理
+           $('#category-msg').on('click', '.update', function (e) {
+               option = '修改';
+               currentId = $(this).data("id");
+               var $td = $(this).parents('tr').find('td');
+               $('#category-modal input').val($td.eq(1).text());
+               $('#category-modal textarea').val($td.eq(3).text());
+               console.log($td.eq(2).data('id'))
+               newOption(function () {
+                   $('#category-modal select').val($td.eq(2).data('id'));
+               });
+               $('#category-modal').modal('show');
+           })
+           // 删除
+           $('#category-msg').on('click', '.delete', function (e) {
+               var id = $(this).data("id")
+               $.get(url + 'manager/category/deleteCategoryById?id=' + id,
+                   function (res) {
+                       if (res.status == 200) {
+                           findAllCategory();
+                           alert('删除成功');
+                       } else {
+                           alert('删除失败');
+                           console.log(res.message);
+                       }
+                   },
+               );
+           });
+           // 批量删除
+           $('#batch-delete').click(function () {
+               var ids = $('#category-msg :checkbox:checked').map(function (index, item) {
+                   return $(item).data('id');
+               }).get();
+               var obj = {
+                   ids: ids.toString()
+               }
+               $.post(url + 'manager/category/batchDeleteCategory', obj,
+                   function (res) {
+                       if (res.status == 200) {
+                           findAllCategory();
+                           alert('删除成功');
+                       } else {
+                           alert('删除失败');
+                           console.log(res.message);
+                       }
+                   },
+               );
+                $('#all-check').prop('checked', false);
+                 $('#category-msg :checkbox').prop('checked', false)
+           })
+           // 点击添加按钮 打开模态框
+           $('#add').click(function () {
+               option = '新增';
+               // 清空表单数据 显示模态框
+               $('input').val('');
+               $('textarea').val('');
+               newOption();
+               $('#category-modal').modal('show');
+           });
+           // 保存
+           $('#to-save').click(function () {
+               // 获取数据 封装成对象 传给后台
+               var categoryName = $('input').val();
+               var categoryParent = $('select').val();
+               var categoryComment = $('textarea').val();
+               if (categoryName && categoryComment) {
+                   // 保存
+                   var obj = {
+                       name: categoryName,
+                       comment: categoryComment,
+                       no: '',
+                       parentId: categoryParent,
+                   };
+                   if (option == "修改") {
+                       obj.id = currentId;
+                   }
+                   $.post(url + 'manager/category/saveOrUpdateCategory', obj,
+                       function (res) {
+                           if (res.status == 200) {
+                               findAllCategory();
+                               alert('保存成功');
+                           } else {
+                               alert('保存失败');
+                               console.log(res.message);
+                           }
+                       },
+                   )
+                    $('#category-modal').modal('hide');
+                    $('#category-modal .modal-footer span').text('');
+               } else {
+                   $('#category-modal .modal-footer span').text('*请输入完整的信息');
+               }
+           });
+           //    父栏目选项
+           function newOption(fun) {
+               $('#category-modal select option:not(:first)').remove();
+               $.get(url + 'manager/category/findAllCategory', function (res) {
+                   var parents = res.data;
+                   parents.forEach(function (item) {
+                       var $option = $('<option value="' + item.id + '">' + item.name +
+                           '</option>')
+                       $('#category-modal select').append($option);
+                   });
+                   if (fun) {
+                       fun()
+                   }
+                   $('#myModalLabel').text(option);
+               });
+           }
+
+           // 全选
+           $('#all-check').on('change', function () {
+               if ($('#all-check').prop('checked') == true) {
+                   $('#category-msg :checkbox').prop('checked', true)
+               } else {
+                   $('#category-msg :checkbox').prop('checked', false)
+               }
+
+           })
+       </script>
+   </div>
