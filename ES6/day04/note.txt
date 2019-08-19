@@ -1,0 +1,11 @@
+Set  ----Array
+Map -------Object
+
+模块
+    NodeJS的模块
+        module.exports.a= 1 导出
+        require('./a.js') /使用相对路径导入
+     ES的模块
+        export 导出
+        export default  导出
+        import 导入

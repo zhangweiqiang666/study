@@ -15,7 +15,15 @@ td,th{
 .delete{
     color: #ff0000
 }
-
+.logo-img{
+    position: absolute;
+    top: 12px;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    background: url(../images/logo.jpg);
+    background-size: contain;
+}
 .f18{
     font-size: 18px;
 }

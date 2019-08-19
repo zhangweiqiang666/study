@@ -10,6 +10,7 @@
             "name": "Launch Chrome",
             // "url": "http://localhost:8080",
             "file": "${file}",
+            "runtimeExecutable": "D:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
         },
         {
             "type": "node",

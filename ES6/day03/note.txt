@@ -1,0 +1,58 @@
+let
+
+const
+    1.有块级作用域
+    2.变量声明不提升
+    3.暂时性死区
+    4.不可重复声明
+    5.在声明是初始化，不可修改值
+
+解构
+    数组解构
+        let [a,b=2] = [1]
+    对象的解构
+        let {name:aName='lisi',age:aAge} = {name:'zhangsan',age:12}
+    字符串的解构
+        let {toString} = '123'
+        let [a,b] = '123'
+    数值的解构
+        let {toString} = 123
+    布尔的解构
+        let {toString} = true
+    对象的扩展
+        let name ='zhangsan'
+        let age = 12
+        let obj = {
+            name,
+            age
+        }
+    方法的简写
+        let obj = {
+            sayName(){
+
+            }
+        }
+    属性名表达式
+        let name = "test";
+        let obj = {
+            [name]:'zhangsan',
+            [name+'hello']:'hello'
+        }
+    
+    Object.is(+0,-0) //false
+    +0===-0 //true
+     Object.is(NaN,NaN) //true
+    NaN===NaN//false
+    isNaN()
+
+对象浅复制
+    引用的复制
+    let obj = {};
+    let obj2 = obj;
+
+对象深复制
+    复制内部的内容
+     let obj = {name:'zhangsan'};
+     let obj2 = obj;
+
+     Object.assign(target,...tail)//对象的合并
