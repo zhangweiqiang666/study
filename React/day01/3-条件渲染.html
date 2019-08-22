@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/react.js"></script>
+  <script src="../js/react-dom.js"></script>
+  <script src="../js/babel.min.js"></script>
+  <script type="text/babel">
+  function IsCom(props) {
+    let  {show,user} = props;
+    if(show&&user){
+      return <h2>已登录</h2>
+    }
+      return <h2>请登录</h2>
+    }
+    let show = false,
+      user = {
+        name:'zhangsan'
+      }
+    ReactDOM.render(<IsCom show={show} user={user} />,document.getElementById('root'))
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

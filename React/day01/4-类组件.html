@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/react.js"></script>
+  <script src="../js/react-dom.js"></script>
+  <script src="../js/babel.min.js"></script>
+  <script type="text/babel">
+      // 组件声明有两种方式： 函数组件 类组件
+      class MyCom extends  React.Component{
+          constructor(props){
+            super(props)
+            this.state={
+              msg:1111
+            }
+          }
+       
+        // 模板的渲染
+        render(h) {
+          let msg = 'hello'
+          return (
+            <div>
+              <h2>{msg}</h2>
+              {/*访问props中的变量*/}
+              <h2>{this.props.test.name}</h2>
+              {/*访问state中的变量*/}
+              <h2>{this.state.msg}</h2>
+          </div>
+            )
+        } }
+      
+      let test = {
+        name:'zhangsan'
+      }
+      ReactDOM.render(<MyCom test={test} />,document.getElementById('container'))
+    </script>
+</head>
+
+<body>
+  <div id="container"></div>
+</body>
+
+</html>

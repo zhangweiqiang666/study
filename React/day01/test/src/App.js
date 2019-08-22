@@ -1,24 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+class MyTd extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
 
-function App() {
+  render(h) {
+    return (
+      <React.Fragment>
+        <td>{this.props.student.number}</td>
+        <td>{this.props.student.name}</td>
+        <td>{this.props.student.gender}</td>
+        <td>{this.props.student.age}</td>
+      </React.Fragment>
+    )
+  }
+}
+function App(props) {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <table>
+        <thead>
+          <tr><th>编号</th><th>姓名</th><th>性别</th><th>年龄</th></tr>
+        </thead>
+        <tbody>
+          {
+            props.student.map((item) => {
+              return <tr key={item.number}><MyTd student={item} /></tr>
+            })
+
+          }
+        </tbody>
+      </table>
     </div>
   );
 }

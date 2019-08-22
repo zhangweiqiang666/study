@@ -15,6 +15,3 @@ console.log(a);
 
 
 
-
-
-

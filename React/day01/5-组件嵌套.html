@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        // 表格组件
+        class MyTable extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {}
+                this.s
+            }
+
+            render(h) {
+                return (
+
+                    <div>
+                        <table>
+                            <thead>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <MyTd></MyTd>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                )
+            }
+        }
+
+        // 表格的td组件
+        class MyTd extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {}
+            }
+
+            render(h) {
+                return (
+                    <React.Fragment>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </React.Fragment>
+                )
+            }
+        }
+
+        ReactDOM.render(<MyTable/>, document.getElementById('container'))
+    </script>
+</head>
+
+<body>
+<div id="container"></div>
+</body>
+
+</html>
