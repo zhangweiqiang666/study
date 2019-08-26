@@ -1,6 +1,7 @@
 // yarn add react-router-dom
 import React, { Component } from 'react';
-import { BrowserRouter, HashRouter, Switch, NavLink, Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Switch, NavLink, Router, Route, Redirect } 
+from 'react-router-dom';
 import Index from './MyTabChild/Index';
 import Student from './MyTabChild/Student';
 import Course from './MyTabChild/Course';

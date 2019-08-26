@@ -3,6 +3,7 @@
     "editor.fontSize": 24,
     "files.autoSave": "afterDelay",
     "cSpell.words": [
+        "antd",
         "browserslist",
         "childs",
         "glyphicon",
