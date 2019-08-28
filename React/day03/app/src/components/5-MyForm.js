@@ -68,7 +68,8 @@ class MyForm extends Component {
             {
               this.state.gender.map((item, index) => {
                 return (
-                  <label key={index}><input type="radio" value={item.value} checked={item.value === form.gender} onChange={this.inputChange.bind(this, 'gender')} />{item.name}</label>
+                  <label key={index}>
+                    <input type="radio" value={item.value} checked={item.value === form.gender} onChange={this.inputChange.bind(this, 'gender')} />{item.name}</label>
                 )
               })
             }
