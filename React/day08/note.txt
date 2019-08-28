@@ -1,0 +1,5 @@
+React UI库
+想要状态管理机制 Redux
+异步交互 Redux-thunk 或Redux-saga
+如果想要简化代码 获取业务逻辑与UI组件分离 React-redux
+

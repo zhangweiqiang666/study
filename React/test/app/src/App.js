@@ -72,7 +72,7 @@ class App extends Component {
                 <Route path='/article' component={Article}></Route>
               </Switch>
             </Content>
-            <Footer style={{ textAlign: 'center',paddingTop: '0'}}>Ant Design ©2018 Created by Ant UED</Footer>
+            <Footer style={{ textAlign: 'center',paddingTop: '0'}}>Made by zhangweiqiang 201908</Footer>
           </Layout>
         </HashRouter>
         
