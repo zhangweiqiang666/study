@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Table, Drawer, Form, Button, Input, Select, Radio, Icon } from 'antd';
+import { Table, Drawer, Form, Button, Input, Select, Icon } from 'antd';
 import axios from '../utils/axios';
+import config from '../utils/config';
 const { Option } = Select;
 
 class CategoryManage extends Component {
@@ -207,7 +208,8 @@ class CategoryManage extends Component {
             {hasSelected ? `已选中 ${selectedRowKeys.length} 个` : ''}
           </span>
         </div>
-        <Table rowKey="id" rowSelection={rowSelection} columns={columns} dataSource={this.state.data} /></div>
+        <Table rowKey="id" rowSelection={rowSelection} columns={columns} dataSource={this.state.data} pagination= {{pageSize: config.pageSize}}/>
+        </div>
     );
   }
 }
